@@ -8,8 +8,6 @@ class ActivityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     List<Activity> activities = [
       Activity(
           title: "HC Verma Physics",
