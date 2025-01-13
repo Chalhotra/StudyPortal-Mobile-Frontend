@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_icons/file_icons.dart';
-import 'package:studyportal/core/widgets/vertical_dots/more_vertical_dots.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/vertical_dots/more_vertical_dots.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
 class FileTile extends StatelessWidget {

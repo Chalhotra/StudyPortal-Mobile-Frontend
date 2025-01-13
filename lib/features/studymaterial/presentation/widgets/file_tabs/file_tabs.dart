@@ -56,8 +56,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
           ),
         ),
         if (!_isFocused)
-          Container(
-              child: Column(
+          Column(
             children: [
               TabBar(
                   isScrollable: true,
@@ -173,7 +172,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 0,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12),
+                      margin: const EdgeInsets.symmetric(horizontal: 12),
                       child: FileScrollSection(
                           size: widget.size, fileTiles: widget.fileTiles),
                     ),
@@ -182,7 +181,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 1,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -195,7 +194,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 2,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -208,7 +207,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 3,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -221,7 +220,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 4,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -234,7 +233,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 5,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -246,7 +245,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                 ],
               )
             ],
-          ))
+          )
       ],
     );
   }
