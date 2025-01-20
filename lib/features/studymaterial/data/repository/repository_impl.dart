@@ -10,13 +10,12 @@ class RepositoryImpl implements Repository {
   const RepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<Either<Failure, List<Branch>>> loadExplorePage({required List<Branch> branches}) async {
+  Future<Either<Failure, List<Branch>>> loadExplorePage() async {
     try {
-      final branchList = await remoteDataSource.loadExplorePage(branches: branches);
+      final branchList = await remoteDataSource.loadExplorePage();
       return right(branchList);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
   }
-
 }

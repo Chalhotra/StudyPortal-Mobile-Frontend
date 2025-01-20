@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studyportal/features/studymaterial/data/datasources/remote_data_source.dart';
+import 'package:studyportal/features/studymaterial/data/repository/repository_impl.dart';
+import 'package:studyportal/features/studymaterial/domain/usecases/load_explore_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bottom_navbar/sp_bottom_navbar.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/explore_page/explore_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/home_page/home_page.dart';
@@ -6,7 +11,12 @@ import 'package:studyportal/features/studymaterial/presentation/pages/profile_pa
 import 'package:studyportal/core/theme/theme_data.dart';
 
 void main() {
-  runApp(const StudyPortal());
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(
+        create: (_) => FetchBranchesCubit(
+            loadExplorePage:
+                LoadExplorePage(RepositoryImpl(RemoteDataSourceImpl()))))
+  ], child: const StudyPortal()));
 }
 
 class StudyPortal extends StatefulWidget {
@@ -44,7 +54,6 @@ class _StudyPortalState extends State<StudyPortal> {
         body: buildNavigator(),
         bottomNavigationBar:
             SPBottomNavBar(currentIndex: _currentIndex, onTap: _onTap),
-        //Edit BottomNavBar to show on page routes through Navigator.push
       ),
     );
   }

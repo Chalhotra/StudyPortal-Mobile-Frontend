@@ -6,18 +6,16 @@ import 'package:studyportal/features/studymaterial/data/models/branch_model.dart
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 
 abstract interface class RemoteDataSource {
-  Future<List<Branch>> loadExplorePage({
-    required List<Branch> branches,
-  });
+  Future<List<Branch>> loadExplorePage();
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
-  final String apiEndpoint = ' 10.0.0.2:3000';
+  final String apiEndpoint = 'http://10.0.2.2:4000';
 
   @override
-  Future<List<Branch>> loadExplorePage({required List<Branch> branches}) async {
+  Future<List<Branch>> loadExplorePage() async {
     try {
-      final response = await http.get(Uri.parse("$apiEndpoint/branches"));
+      final response = await http.get(Uri.parse("$apiEndpoint/api/branches"));
 
       if (response.statusCode != 200) {
         throw ServerException(
@@ -26,11 +24,11 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
       final Map<String, dynamic> responseData = json.decode(response.body);
 
-      if (responseData["branches"] == null) {
+      if (responseData["data"] == null) {
         throw const ServerException("Empty Branch List");
       }
 
-      return (responseData["branches"] as List<dynamic>)
+      return (responseData["data"] as List<dynamic>)
           .map((branch) => BranchModel.fromJson(branch))
           .toList();
     } catch (e) {
