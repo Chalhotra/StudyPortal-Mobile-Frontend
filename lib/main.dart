@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studyportal/features/studymaterial/data/datasources/remote_data_source.dart';
 import 'package:studyportal/features/studymaterial/data/repository/repository_impl.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/load_explore_page.dart';
-import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bottom_navbar/sp_bottom_navbar.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/explore_page/explore_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/home_page/home_page.dart';

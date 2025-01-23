@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
@@ -51,10 +51,12 @@ class _ExplorePageState extends State<ExplorePage>
           final List<CourseCard> courseCards = state.branches.map((branch) {
             index++;
             return CourseCard(
-                title: branch.name,
-                subtitle: branch.department,
-                themeColor: courseCardColors[index],
-                pin: Pin.none);
+              title: branch.name,
+              subtitle: branch.department,
+              themeColor: courseCardColors[index],
+              pin: Pin.none,
+              onTap: () => {},
+            );
             //add onTap
           }).toList();
           return Scaffold(
@@ -119,7 +121,7 @@ class _ExplorePageState extends State<ExplorePage>
                           ScrollSection(
                             scroll: true,
                             rows: 3.5,
-                            courseCards: [courseCards[1], courseCards[2]],
+                            courseCards: [courseCards[0], courseCards[1]],
                           ),
                         ],
                       ),
