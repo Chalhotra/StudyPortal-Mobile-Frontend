@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
 
 class PinnedSection extends StatelessWidget {
   const PinnedSection({
     super.key,
+    required this.state,
     required this.size,
-    required this.courseCards,
     required this.onTap,
   });
 
+  final FetchPinsState state;
   final Size size;
-  final List<Widget> courseCards;
   final VoidCallback onTap;
 
   @override
@@ -49,19 +55,42 @@ class PinnedSection extends StatelessWidget {
           SizedBox(
             height: 160,
             width: size.width,
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: courseCards.length,
-              itemBuilder: (BuildContext context, int index) {
-                return courseCards[index];
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  width: 16,
+            child: BlocBuilder<FetchPinsCubit, FetchPinsState>(
+                builder: (context, state) {
+              if (state is FetchPinsLoading || state is FetchPinsInitial) {
+                return const Loader();
+              } else if (state is FetchPinsFailure) {
+                return Text(state.message);
+              } else if (state is FetchPinsLoaded) {
+                int index = 0;
+                final List<CourseCard> pinnedCards = state.pins.map((branch) {
+                  index++;
+                  return CourseCard(
+                    title: branch.name,
+                    subtitle: branch.department,
+                    themeColor: HardCodedConstants.courseCardColors[index],
+                    pin: Pin.none,
+                    onTap: () => {},
+                  );
+                  //add onTap
+                }).toList();
+                //Add No Pins when pinnedCards.length == 0
+                return ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: pinnedCards.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return pinnedCards[index];
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 16,
+                    );
+                  },
                 );
-              },
-            ),
+              }
+              return const SizedBox.shrink();
+            }),
           ),
           const SizedBox(
             height: 12,

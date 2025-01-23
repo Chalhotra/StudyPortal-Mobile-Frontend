@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/see_all_bookmarked_page/see_all_bookmarked_page.dart';
 
@@ -8,11 +8,11 @@ class BookmarkedSection extends StatelessWidget {
   const BookmarkedSection({
     super.key,
     required this.size,
-    required this.bookmarkedTiles,
+    required this.state,
   });
 
   final Size size;
-  final List<FileTile> bookmarkedTiles;
+  final FetchBookmarksState state;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class BookmarkedSection extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                return bookmarkedTiles[index];
+                // return bookmarkedTiles[index];
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(

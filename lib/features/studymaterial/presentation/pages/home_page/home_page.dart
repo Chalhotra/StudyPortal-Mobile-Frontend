@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_section/bookmarked_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/downloaded_section/downloaded_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/pinned_section/pinned_section.dart';
@@ -11,11 +14,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read()<FetchPinsCubit>().getPins();
+    context.read()<FetchBookmarksCubit>().getBookmarks();
     var size = MediaQuery.of(context).size;
-    //logic to get list of pinned courses from the database
-    ///course cards coming from the db have to have the following information:
-    ///title, subtitle, themeColor, pin, onTap
-
     return Scaffold(
         body: SafeArea(
       child: Padding(
@@ -39,12 +40,16 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              PinnedSection(
-                size: size,
-                courseCards: HardCodedConstants.courseCards,
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SeeAllPinnedPage()));
+              BlocBuilder<FetchPinsCubit, FetchPinsState>(
+                builder: (context, state) {
+                  return PinnedSection(
+                    state: state,
+                    size: size,
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SeeAllPinnedPage()));
+                    },
+                  );
                 },
               ),
               const SizedBox(
@@ -55,9 +60,11 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              BookmarkedSection(
-                  size: size,
-                  bookmarkedTiles: HardCodedConstants.bookmarkedTiles),
+              BlocBuilder<FetchBookmarksCubit, FetchBookmarksState>(
+                builder: (context, state) {
+                  return BookmarkedSection(state: state, size: size);
+                },
+              ),
               const SizedBox(
                 height: 24,
               ),

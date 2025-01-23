@@ -5,6 +5,12 @@ import 'package:studyportal/features/studymaterial/presentation/widgets/tools/fi
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
 
 class HardCodedConstants {
+  static const List<Color> courseCardColors = [
+    Color(0xFF0D891B),
+    Color(0xFFCF4141),
+    Color(0xFF20284C)
+  ];
+
   static const List<FileTile> fileTiles = [
     FileTile(
       fileType: FileType.link,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
@@ -18,11 +19,6 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  final List<Color> courseCardColors = [
-    const Color(0xFF0D891B),
-    const Color(0xFFCF4141),
-    const Color(0xFF20284C)
-  ];
 
   @override
   void initState() {
@@ -53,7 +49,7 @@ class _ExplorePageState extends State<ExplorePage>
             return CourseCard(
               title: branch.name,
               subtitle: branch.department,
-              themeColor: courseCardColors[index],
+              themeColor: HardCodedConstants.courseCardColors[index],
               pin: Pin.none,
               onTap: () => {},
             );
