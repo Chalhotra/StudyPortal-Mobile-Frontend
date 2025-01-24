@@ -57,6 +57,8 @@ class BookmarkedSection extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
+                return null;
+              
                 // return bookmarkedTiles[index];
               },
               separatorBuilder: (context, index) {

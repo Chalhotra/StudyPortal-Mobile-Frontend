@@ -6,7 +6,16 @@ import 'package:studyportal/features/studymaterial/presentation/widgets/tools/fi
 class FileTile extends StatelessWidget {
   final FileType fileType;
   final String title;
-  const FileTile({super.key, required this.fileType, required this.title});
+  final VoidCallback onTap;
+
+  static void _defaultOnTap() {}
+
+  const FileTile({
+    super.key,
+    required this.fileType,
+    required this.title,
+    this.onTap = _defaultOnTap,
+  });
 
   @override
   Widget build(BuildContext context) {
