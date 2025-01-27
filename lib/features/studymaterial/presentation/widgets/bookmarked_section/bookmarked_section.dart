@@ -75,19 +75,25 @@ class BookmarkedSection extends StatelessWidget {
                     );
                     //add onTap
                   }).toList();
-                  return ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.vertical,
-                    itemCount: 4,
-                    itemBuilder: (BuildContext context, int index) {
-                      return bookmarkedTiles[index];
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 13,
-                      );
-                    },
-                  );
+                  if (bookmarkedTiles.isEmpty) {
+                    return const Center(
+                      child: Text("No Bookmarks Added"),
+                    );
+                  } else {
+                    return ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      itemCount: 4,
+                      itemBuilder: (BuildContext context, int index) {
+                        return bookmarkedTiles[index];
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          height: 13,
+                        );
+                      },
+                    );
+                  }
                 }
                 return const SizedBox.shrink();
               },
