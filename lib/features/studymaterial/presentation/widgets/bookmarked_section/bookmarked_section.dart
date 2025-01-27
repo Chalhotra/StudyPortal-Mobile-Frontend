@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/see_all_bookmarked_page/see_all_bookmarked_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
 class BookmarkedSection extends StatelessWidget {
   const BookmarkedSection({
@@ -52,19 +56,40 @@ class BookmarkedSection extends StatelessWidget {
           ),
           SizedBox(
             height: 228,
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              itemCount: 4,
-              itemBuilder: (BuildContext context, int index) {
-                return null;
-              
-                // return bookmarkedTiles[index];
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 13,
-                );
+            child: BlocBuilder<FetchBookmarksCubit, FetchBookmarksState>(
+              builder: (context, state) {
+                if (state is FetchBookmarksLoading ||
+                    state is FetchBookmarksInitial) {
+                  return const Loader();
+                } else if (state is FetchBookmarksFailure) {
+                  return Text(state.message);
+                } else if (state is FetchBookmarksLoaded) {
+                  final List<FileTile> bookmarkedTiles =
+                      state.bookmarks.map((file) {
+                    FileType fileType = fileTypeFromString(file.type);
+                    //Is there a need to handle invalid file type? Need to be discussed
+                    return FileTile(
+                      title: file.name,
+                      fileType: fileType,
+                      onTap: () => {},
+                    );
+                    //add onTap
+                  }).toList();
+                  return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: 4,
+                    itemBuilder: (BuildContext context, int index) {
+                      return bookmarkedTiles[index];
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 13,
+                      );
+                    },
+                  );
+                }
+                return const SizedBox.shrink();
               },
             ),
           ),

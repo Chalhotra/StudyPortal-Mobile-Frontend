@@ -74,20 +74,25 @@ class PinnedSection extends StatelessWidget {
                   );
                   //add onTap
                 }).toList();
-                //Add No Pins when pinnedCards.length == 0
-                return ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: pinnedCards.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return pinnedCards[index];
-                  },
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      width: 16,
-                    );
-                  },
-                );
+                if (pinnedCards.isEmpty) {
+                  return const Center(
+                    child: Text("No Pins Added"),
+                  );
+                } else {
+                  return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: pinnedCards.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return pinnedCards[index];
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        width: 16,
+                      );
+                    },
+                  );
+                }
               }
               return const SizedBox.shrink();
             }),
