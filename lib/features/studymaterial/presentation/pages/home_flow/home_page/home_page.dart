@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_section/bookmarked_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/downloaded_section/downloaded_section.dart';
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(bottom: 20, top: 20),
                 width: size.width,
-                height: 50,
+                height: 50.h,
                 child: const Row(
                   children: [
                     Text(
@@ -47,25 +48,25 @@ class HomePage extends StatelessWidget {
                       builder: (context) => const SeeAllPinnedPage()));
                 },
               ),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               RecentSection(
                   size: size, recentTiles: HardCodedConstants.recentTiles),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               BookmarkedSection(
                   size: size,
                   bookmarkedTiles: HardCodedConstants.bookmarkedTiles),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               DownloadedSection(
                   size: size,
                   downloadedTiles: HardCodedConstants.downloadedTiles),
-              const SizedBox(
-                height: 12,
+              SizedBox(
+                height: 12.h,
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MoreVerticalDots extends StatelessWidget {
@@ -13,8 +14,8 @@ class MoreVerticalDots extends StatelessWidget {
     return SvgPicture.asset(
       "lib/core/svgs/more_vertical_dots.svg",
       colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
-      height: height ?? 16,
-      width: width ?? 16,
+      height: height ?? 16.h,
+      width: width ?? 16.w,
       //Add onTap to show drop down menu
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
@@ -44,8 +45,8 @@ class _ExplorePageState extends State<ExplorePage>
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 20, top: 20),
-                width: size.width,
-                height: 50,
+                width: size.width.w,
+                height: 50.h,
                 child: const Row(
                   children: [
                     Text(
@@ -58,7 +59,7 @@ class _ExplorePageState extends State<ExplorePage>
                 ),
               ),
               Container(
-                height: 40,
+                height: 40.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: const Color(0xFFC8CBDC),
@@ -69,7 +70,7 @@ class _ExplorePageState extends State<ExplorePage>
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: const Color(0xFFC8CBDC),
-                      width: 5,
+                      width: 5.w,
                     ),
                     color: Colors.white,
                   ),
@@ -86,7 +87,7 @@ class _ExplorePageState extends State<ExplorePage>
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Expanded(
                 child: TabBarView(
                   controller: _tabController,

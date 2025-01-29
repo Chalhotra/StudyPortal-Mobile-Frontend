@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_scroll_section/file_scroll_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
@@ -47,7 +48,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 12),
+          margin: const EdgeInsets.symmetric(horizontal: 12).w,
           child: CustomSearchBar(
             fileTiles: widget.fileTiles,
             screen: widget.screen,
@@ -66,7 +67,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                   dividerColor: Colors.transparent,
                   indicator: const BoxDecoration(),
                   labelStyle: const TextStyle(color: Colors.white),
-                  labelPadding: const EdgeInsets.only(left: 8, right: 12),
+                  labelPadding: const EdgeInsets.only(left: 8, right: 12).w,
                   onTap: (index) {
                     setState(() {
                       _selectedIndex = index;
@@ -77,16 +78,19 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                   tabs: [
                     Container(
                       decoration: BoxDecoration(
-                          color: (_selectedIndex == 0)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      margin: const EdgeInsets.only(left: 4),
-                      width: 72,
-                      height: 36,
+                        color: (_selectedIndex == 0)
+                            ? const Color.fromRGBO(38, 48, 83, 1.0)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(
+                          color: const Color(0xFFE3E2E8),
+                          width: 1.w,
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(3).r,
+                      margin: const EdgeInsets.only(left: 4).w,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text(
                         "All",
@@ -99,10 +103,10 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                               : Colors.white,
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
+                              color: const Color(0xFFE3E2E8), width: 1.w)),
+                      padding: const EdgeInsets.all(3).r,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text("Notes"),
                     ),
@@ -113,10 +117,10 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                               : Colors.white,
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
+                              color: const Color(0xFFE3E2E8), width: 1.w)),
+                      padding: const EdgeInsets.all(3).r,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text("TUTs"),
                     ),
@@ -127,10 +131,10 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                               : Colors.white,
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
+                              color: const Color(0xFFE3E2E8), width: 1.w)),
+                      padding: const EdgeInsets.all(3).r,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text("PYQs"),
                     ),
@@ -139,12 +143,12 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                           color: (_selectedIndex == 4)
                               ? const Color.fromRGBO(38, 48, 83, 1.0)
                               : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(4).w,
                           border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
+                              color: const Color(0xFFE3E2E8), width: 1.w)),
                       padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text("Books"),
                     ),
@@ -155,16 +159,16 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                               : Colors.white,
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
+                              color: const Color(0xFFE3E2E8), width: 1.w)),
+                      padding: const EdgeInsets.all(3).r,
+                      width: 72.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       child: const Text("Links"),
                     ),
                   ]),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               IndexedStack(
                 index: _selectedIndex,
@@ -173,7 +177,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 0,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12),
+                      margin: const EdgeInsets.symmetric(horizontal: 12).w,
                       child: FileScrollSection(
                           size: widget.size, fileTiles: widget.fileTiles),
                     ),
@@ -182,7 +186,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 1,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -195,7 +199,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 2,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -208,7 +212,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 3,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -221,7 +225,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 4,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -234,7 +238,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 5,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles

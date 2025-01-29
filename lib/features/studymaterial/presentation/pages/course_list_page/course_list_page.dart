@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
@@ -42,16 +43,16 @@ class _CourseListPageState extends State<CourseListPage> {
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 20, top: 20),
-                // width: size.width,
-                height: 50,
+                // width: size.width.w,
+                height: 50.h,
                 child: Row(
                   children: [
                     Text(
                       widget.department.title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 24),
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
               ),
