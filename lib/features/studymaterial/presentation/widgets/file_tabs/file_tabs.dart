@@ -73,8 +73,8 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                   setState(() {
                     _selectedIndex = index;
                   });
-                  _tabController.animateTo(index,
-                      duration: const Duration(milliseconds: 500));
+                  // _tabController.animateTo(index,
+                  //     duration: const Duration(milliseconds: 500));
                 },
                 tabs: [
                   FilterTab(

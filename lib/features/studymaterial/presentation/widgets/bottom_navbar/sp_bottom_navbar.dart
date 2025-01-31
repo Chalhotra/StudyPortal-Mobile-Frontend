@@ -16,6 +16,7 @@ class _SPBottomNavBarState extends State<SPBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       selectedLabelStyle: const TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 14,

@@ -90,7 +90,19 @@ class _CourseListPageState extends State<CourseListPage> {
                   ],
                 ),
               ),
-              //chetak: Not to be used, not complete, bas placeholder searchbar type hai
+
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Search in ${widget.department.title} Department",
+                  prefixIcon: SvgPicture.asset(
+                    "lib/core/svgs/search_icon.svg",
+                    fit: BoxFit.scaleDown,
+                  ),
+                ),
+              ),
+              SizedBox(
+                  height: 10
+                      .h), //chetak: Not to be used, not complete, bas placeholder searchbar type hai
               Expanded(
                 child: ListView.separated(
                   separatorBuilder: (context, index) {
