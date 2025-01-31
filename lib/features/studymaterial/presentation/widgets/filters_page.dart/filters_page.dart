@@ -214,6 +214,7 @@ class MultiFilterTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: onTap,
       child: FilterTab(
         tabBar: false,
