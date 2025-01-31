@@ -23,8 +23,6 @@ class CourseListPage extends StatefulWidget {
 }
 
 class _CourseListPageState extends State<CourseListPage> {
-  final FocusNode _focusNode = FocusNode();
-  bool _isFocused = false;
   List<CourseCard> courseCards = [];
 
   void _showModalBottomSheet() {
@@ -42,9 +40,6 @@ class _CourseListPageState extends State<CourseListPage> {
   @override
   void initState() {
     courseCards = HardCodedConstants.courseCards;
-    _focusNode.addListener(() => setState(() {
-          _isFocused = _focusNode.hasFocus;
-        }));
     super.initState();
   }
 
@@ -95,12 +90,7 @@ class _CourseListPageState extends State<CourseListPage> {
                   ],
                 ),
               ),
-              CustomSearchBar(
-                  searchableItems: filteredCourseCards,
-                  screen: widget.department.title,
-                  isFocused: _isFocused,
-                  focusNode:
-                      _focusNode), //chetak: Not to be used, not complete, bas placeholder searchbar type hai
+              //chetak: Not to be used, not complete, bas placeholder searchbar type hai
               Expanded(
                 child: ListView.separated(
                   separatorBuilder: (context, index) {

@@ -56,28 +56,10 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
           focusNode: widget.focusNode,
           decoration: InputDecoration(
             hintText: "Search files in ${widget.screen}",
-            hintStyle: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Color.fromRGBO(99, 102, 117, 1.0)),
             prefixIcon: SvgPicture.asset(
               "lib/core/svgs/search_icon.svg",
               fit: BoxFit.scaleDown,
             ),
-            filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(4),
-                borderSide:
-                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(4),
-                borderSide:
-                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(4),
-                borderSide:
-                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
           ),
           onChanged: _filterList,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/core/theme/constants.dart';
 
 class GlobalThemeData {
@@ -11,6 +12,23 @@ class GlobalThemeData {
             bodyColor: const Color.fromRGBO(38, 48, 83, 1.0),
             displayColor: const Color.fromRGBO(38, 48, 83, 1.0),
           ),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Color.fromRGBO(99, 102, 117, 1.0)),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
+      ),
       fontFamily: "Poppins",
       scaffoldBackgroundColor: const Color(0xFFF0F1F5),
     );
