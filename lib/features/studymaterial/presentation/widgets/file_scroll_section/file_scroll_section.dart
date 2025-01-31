@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FileScrollSection extends StatelessWidget {
   const FileScrollSection({
@@ -13,13 +14,13 @@ class FileScrollSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.only(bottom: 20),
-      width: size.width,
+      padding: const EdgeInsets.all(12).r,
+      margin: const EdgeInsets.only(bottom: 20).h,
+      width: size.width.w,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: const Color(0xFFE3E2E8)),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8).w,
       ),
       child: Column(
         children: [
@@ -27,8 +28,8 @@ class FileScrollSection extends StatelessWidget {
             Column(
               children: [
                 fileTiles[index],
-                const SizedBox(
-                  height: 13,
+                SizedBox(
+                  height: 13.h,
                 ),
               ],
             )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
 
@@ -25,12 +26,13 @@ class SeeAllPinnedPage extends StatelessWidget {
           child: ListView(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            children: const [
-              ScrollSection(
+            children: [
+              const ScrollSection(
+                  scrollSectionHeight: 160 * 4 - 18,
                   scroll: true,
                   rows: 4,
                   departmentCards: HardCodedConstants.departmentCards),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

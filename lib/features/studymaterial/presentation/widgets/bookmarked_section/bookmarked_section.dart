@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
@@ -17,9 +18,9 @@ class BookmarkedSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 320,
+      height: 322.h,
       padding: const EdgeInsets.all(12),
-      width: size.width,
+      width: size.width.w,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: const Color(0xFFE3E2E8)),
@@ -37,8 +38,8 @@ class BookmarkedSection extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   "lib/core/svgs/bookmarked_icon.svg",
-                  height: 16,
-                  width: 16,
+                  height: 16.h,
+                  width: 16.w,
                 ),
               ),
               const Text(
@@ -47,11 +48,11 @@ class BookmarkedSection extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 13,
+          SizedBox(
+            height: 13.h,
           ),
           SizedBox(
-            height: 228,
+            height: 230.h,
             child: ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
@@ -60,14 +61,14 @@ class BookmarkedSection extends StatelessWidget {
                 return bookmarkedTiles[index];
               },
               separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 13,
+                return SizedBox(
+                  height: 13.h,
                 );
               },
             ),
           ),
-          const SizedBox(
-            height: 9,
+          SizedBox(
+            height: 9.h,
           ),
           Row(
             children: [
@@ -80,8 +81,8 @@ class BookmarkedSection extends StatelessWidget {
                   info: "See all",
                   icon: SvgPicture.asset(
                     "lib/core/svgs/right_caret.svg",
-                    height: 16,
-                    width: 16,
+                    height: 16.h,
+                    width: 16.w,
                   )),
             ],
           ),

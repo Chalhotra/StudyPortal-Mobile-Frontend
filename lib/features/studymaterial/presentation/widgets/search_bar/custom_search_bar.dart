@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/features/studymaterial/presentation/utils/searchable.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/not_found_box/not_found_box.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar(
       {super.key,
-      required this.fileTiles,
+      required this.searchableItems,
       required this.screen,
       required this.isFocused,
       required this.focusNode});
 
-  final List<FileTile> fileTiles;
+  final List<Searchable> searchableItems;
   final String screen;
   final bool isFocused;
   final FocusNode focusNode;
@@ -23,16 +25,16 @@ class CustomSearchBar extends StatefulWidget {
 class _CustomSearchBarState extends State<CustomSearchBar> {
   TextEditingController searchController = TextEditingController();
 
-  List<FileTile> filteredList = [];
+  List filteredList = [];
   @override
   void initState() {
     super.initState();
-    filteredList = widget.fileTiles;
+    filteredList = widget.searchableItems;
   }
 
   void _filterList(String query) {
     setState(() {
-      filteredList = widget.fileTiles
+      filteredList = widget.searchableItems
           .where(
               (file) => file.title.toLowerCase().contains(query.toLowerCase()))
           .toList();
@@ -67,33 +69,35 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide:
-                    const BorderSide(color: Color(0xFFE3E2E8), width: 1)),
+                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide:
-                    const BorderSide(color: Color(0xFFE3E2E8), width: 1)),
+                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide:
-                    const BorderSide(color: Color(0xFFE3E2E8), width: 1)),
+                    BorderSide(color: const Color(0xFFE3E2E8), width: 1.w)),
           ),
           onChanged: _filterList,
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         if (widget.isFocused && filteredList.isNotEmpty)
           Container(
-            padding: const EdgeInsets.only(left: 5),
+            padding: const EdgeInsets.only(left: 5).w,
             alignment: Alignment.centerLeft,
             child: Text(
               "Matching files in ${widget.screen}",
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
-        const SizedBox(height: 10),
+        SizedBox(
+          height: 10.h,
+        ),
         if (widget.isFocused && filteredList.isNotEmpty)
           Container(
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.all(12).r,
+            margin: const EdgeInsets.only(bottom: 20).h,
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(color: const Color(0xFFE3E2E8)),
@@ -105,8 +109,8 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                   Column(
                     children: [
                       filteredList[index],
-                      const SizedBox(
-                        height: 13,
+                      SizedBox(
+                        height: 13.h,
                       ),
                     ],
                   )
@@ -114,7 +118,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
             ),
           ),
         if (widget.isFocused) const NotFoundBox(),
-        if (widget.isFocused) const SizedBox(height: 20),
+        if (widget.isFocused) SizedBox(height: 20.h),
       ],
     );
   }

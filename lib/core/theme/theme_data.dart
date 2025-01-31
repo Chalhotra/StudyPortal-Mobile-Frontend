@@ -23,13 +23,13 @@ class GlobalThemeData {
 
   static const ColorScheme _lightColorScheme = ColorScheme(
     primary: Colors.white,
-    onPrimary: Color(spRoyalBlue),
-    secondary: Color(spRoyalBlue),
+    onPrimary: Color(StudyPortalConstants.spRoyalBlue),
+    secondary: Color(StudyPortalConstants.spRoyalBlue),
     onSecondary: Colors.white,
     error: Colors.red,
     onError: Colors.white,
     brightness: Brightness.light,
-    surface: Color(spOffWhite),
-    onSurface: Color(spRoyalBlue),
+    surface: Color(StudyPortalConstants.spOffWhite),
+    onSurface: Color(StudyPortalConstants.spRoyalBlue),
   );
 }

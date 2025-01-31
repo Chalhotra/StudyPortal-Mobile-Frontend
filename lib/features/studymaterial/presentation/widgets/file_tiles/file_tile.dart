@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:studyportal/features/studymaterial/presentation/utils/searchable.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_icons/file_icons.dart';
-import 'package:studyportal/core/widgets/vertical_dots/more_vertical_dots.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
-class FileTile extends StatelessWidget {
+import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/vertical_dots/more_vertical_dots.dart';
+
+class FileTile extends StatelessWidget implements Searchable {
   final FileType fileType;
   final String title;
   const FileTile({super.key, required this.fileType, required this.title});
@@ -11,24 +14,20 @@ class FileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // width: 336,
-      height: 48,
+      // width: 336.w,
+      height: 48.h,
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FileIcons(fileType: fileType),
-          const SizedBox(
-            width: 16,
-          ),
+          SizedBox(width: 16.w),
           Text(
             title,
             style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
           ),
           const Spacer(),
           const MoreVerticalDots(),
-          const SizedBox(
-            width: 8,
-          ),
+          SizedBox(width: 8.w),
         ],
       ),
     );
