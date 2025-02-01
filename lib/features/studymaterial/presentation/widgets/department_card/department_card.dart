@@ -71,7 +71,7 @@ class DepartmentCard extends StatelessWidget implements Searchable {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.only(left: 16).w,
+                padding: const EdgeInsets.symmetric(horizontal: 16).w,
                 width: double.infinity.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,6 +79,7 @@ class DepartmentCard extends StatelessWidget implements Searchable {
                     Text(
                       title,
                       style: const TextStyle(
+                          overflow: TextOverflow.clip,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 16),
@@ -89,6 +90,7 @@ class DepartmentCard extends StatelessWidget implements Searchable {
                     Text(
                       subtitle,
                       style: const TextStyle(
+                        overflow: TextOverflow.clip,
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 12,

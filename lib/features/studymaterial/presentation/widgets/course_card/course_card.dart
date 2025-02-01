@@ -84,6 +84,7 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
                     Text(
                       title,
                       style: const TextStyle(
+                          overflow: TextOverflow.clip,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 16),
@@ -94,6 +95,7 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
                     Text(
                       subtitle,
                       style: const TextStyle(
+                        overflow: TextOverflow.clip,
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 12,

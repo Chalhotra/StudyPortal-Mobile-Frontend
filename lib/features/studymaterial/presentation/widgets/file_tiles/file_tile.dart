@@ -26,30 +26,23 @@ class FileTile extends StatefulWidget implements Searchable {
 }
 
 class _FileTileState extends State<FileTile> {
-  var selectedValue = "USA";
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(value: "USA", child: Text("USA")),
-      const DropdownMenuItem(value: "Canada", child: Text("Canada")),
-      const DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
-      const DropdownMenuItem(value: "England", child: Text("England")),
-    ];
-    return menuItems;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // width: 336.w,
       height: 48.h,
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FileIcons(fileType: widget.fileType),
           SizedBox(width: 16.w),
-          Text(
-            widget.title,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+          Container(
+            constraints: BoxConstraints(maxWidth: 252.w),
+            child: Text(
+              widget.title,
+              style: const TextStyle(
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14),
+            ),
           ),
           const Spacer(),
           SizedBox(width: 8.w),

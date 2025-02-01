@@ -8,10 +8,20 @@ class GlobalThemeData {
       colorScheme: colorScheme,
       focusColor: focusColor,
       useMaterial3: true,
-      textTheme: ThemeData.light().textTheme.apply(
-            bodyColor: const Color.fromRGBO(38, 48, 83, 1.0),
-            displayColor: const Color.fromRGBO(38, 48, 83, 1.0),
-          ),
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(
+          overflow: TextOverflow.ellipsis,
+          color: Color.fromRGBO(38, 48, 83, 1.0),
+        ),
+        bodyMedium: TextStyle(
+          overflow: TextOverflow.ellipsis,
+          color: Color.fromRGBO(38, 48, 83, 1.0),
+        ),
+        bodySmall: TextStyle(
+          overflow: TextOverflow.ellipsis,
+          color: Color.fromRGBO(38, 48, 83, 1.0),
+        ),
+      ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: const TextStyle(
             fontSize: 16,

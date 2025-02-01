@@ -88,10 +88,14 @@ class _CourseListPageState extends State<CourseListPage> {
                         color: Color(StudyPortalConstants.spRoyalBlue),
                       ),
                     ),
-                    Text(
-                      "${widget.department.title} Department",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 24),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      child: Text(
+                        "${widget.department.title} Department",
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24),
+                      ),
                     ),
                     const Spacer(),
                     InkWell(
