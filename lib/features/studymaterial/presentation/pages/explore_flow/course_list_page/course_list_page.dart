@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
@@ -24,7 +25,8 @@ class CourseListPage extends StatefulWidget {
 
 class _CourseListPageState extends State<CourseListPage> {
   List<CourseCard> courseCards = [];
-
+  final FocusNode _focusNode = FocusNode();
+  bool _isFocused = false;
   void _showModalBottomSheet() {
     showModalBottomSheet<void>(
       useSafeArea: true,
@@ -41,6 +43,9 @@ class _CourseListPageState extends State<CourseListPage> {
   void initState() {
     courseCards = HardCodedConstants.courseCards;
     super.initState();
+    _focusNode.addListener(() => setState(() {
+          _isFocused = _focusNode.hasFocus;
+        }));
   }
 
   Map<int, List<CourseCard>> _groupBySemester(List<CourseCard> courseCards) {
@@ -76,6 +81,13 @@ class _CourseListPageState extends State<CourseListPage> {
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: const Icon(
+                        Icons.arrow_back_ios,
+                        color: Color(StudyPortalConstants.spRoyalBlue),
+                      ),
+                    ),
                     Text(
                       "${widget.department.title} Department",
                       style: const TextStyle(
@@ -100,6 +112,7 @@ class _CourseListPageState extends State<CourseListPage> {
                   ),
                 ),
               ),
+
               SizedBox(
                   height: 10
                       .h), //chetak: Not to be used, not complete, bas placeholder searchbar type hai

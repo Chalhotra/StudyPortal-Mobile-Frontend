@@ -26,8 +26,7 @@ class _SPBottomNavBarState extends State<SPBottomNavBar> {
         fontWeight: FontWeight.w500,
         fontSize: 14,
       ),
-      unselectedItemColor:
-          const Color(StudyPortalConstants.spBottomNavBarUnselectedItemLabel),
+      unselectedItemColor: const Color(StudyPortalConstants.spGrey),
       selectedFontSize: 12,
       items: [
         BottomNavigationBarItem(

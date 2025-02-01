@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/explore_flow/files_list_page/files_list_page.dart';
 
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_active.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_inactive.dart';
@@ -34,7 +35,10 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap ?? () {},
+      onTap: onTap ??
+          () {
+            Navigator.of(context).push(FilesListPage.route(title));
+          },
       child: Container(
         width: 160.w,
         height: 160.h,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/course_list_page/course_list_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/explore_flow/course_list_page/course_list_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/utils/searchable.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_active.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_inactive.dart';
@@ -29,8 +29,7 @@ class DepartmentCard extends StatelessWidget implements Searchable {
     return InkWell(
       onTap: onTap ??
           () {
-            Navigator.push(
-              context,
+            Navigator.of(context).push(
               CourseListPage.route(Department(
                   title: title, subtitle: subtitle, themeColor: themeColor)),
             );

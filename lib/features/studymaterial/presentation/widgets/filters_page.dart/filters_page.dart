@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/core/theme/constants.dart';
+import 'package:studyportal/core/widgets/sp_material_button/sp_material_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/filter_tab/filter_tab.dart';
 
 class FiltersPage extends StatefulWidget {
@@ -48,8 +49,7 @@ class _FiltersPageState extends State<FiltersPage>
             const Text(
               "Degree",
               style: TextStyle(
-                color: Color(
-                    StudyPortalConstants.spBottomNavBarUnselectedItemLabel),
+                color: Color(StudyPortalConstants.spGrey),
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
               ),
@@ -93,8 +93,7 @@ class _FiltersPageState extends State<FiltersPage>
             const Text(
               "Year",
               style: TextStyle(
-                color: Color(
-                    StudyPortalConstants.spBottomNavBarUnselectedItemLabel),
+                color: Color(StudyPortalConstants.spGrey),
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
               ),
@@ -172,23 +171,10 @@ class _FiltersPageState extends State<FiltersPage>
             const Spacer(
               flex: 5,
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
-              child: MaterialButton(
-                height: 62.r,
-                minWidth: 352.r,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4)),
-                color: const Color(StudyPortalConstants.spRoyalBlue),
-                textColor: Colors.white,
-                elevation: 0,
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text(
-                  "Done",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                ),
+              child: SPMaterialButton(
+                text: "Done",
               ),
             ),
             const Spacer(),

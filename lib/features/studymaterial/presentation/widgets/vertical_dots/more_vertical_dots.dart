@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/core/theme/constants.dart';
+import 'package:studyportal/features/studymaterial/presentation/utils/show_report_sheet/show_report_sheet.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/sp_pop_up_menu_item/sp_pop_up_menu_item.dart';
 
 class MoreVerticalDots extends StatelessWidget {
   final Color? color;
@@ -11,12 +14,44 @@ class MoreVerticalDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      "lib/core/svgs/more_vertical_dots.svg",
-      colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
-      height: height ?? 16.h,
-      width: width ?? 16.w,
-      //Add onTap to show drop down menu
+    return PopupMenuButton(
+      constraints: BoxConstraints(maxHeight: 120.h, maxWidth: 120.w),
+      padding: const EdgeInsets.all(0),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+          side: const BorderSide(
+              width: 1,
+              color: Color(
+                StudyPortalConstants.spStrokeGrey,
+              ))),
+      color: Colors.white,
+      menuPadding: const EdgeInsets.only(top: 6.0, bottom: 7.0).r,
+      itemBuilder: (context) => [
+        SPPopupMenuItem(
+            img: "lib/core/svgs/bookmark.svg",
+            "Bookmark",
+            onTap: () {},
+            title: "Bookmark"),
+        SPPopupMenuItem(
+            img: "lib/core/svgs/download_icon.svg",
+            "Download",
+            onTap: () {},
+            title: "Download"),
+        SPPopupMenuItem(
+            img: "lib/core/svgs/report_icon.svg",
+            textColor: const Color(StudyPortalConstants.spRed),
+            "Report", onTap: () {
+          showReportSheet(context);
+        }, title: "Report"),
+      ],
+      child: SvgPicture.asset(
+        "lib/core/svgs/more_vertical_dots.svg",
+        colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
+        height: height ?? 16.h,
+        width: width ?? 16.w,
+        //Add onTap to show drop down menu
+      ),
     );
   }
 }

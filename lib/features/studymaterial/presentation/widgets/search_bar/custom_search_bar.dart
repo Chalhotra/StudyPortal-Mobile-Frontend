@@ -85,7 +85,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               border: Border.all(color: const Color(0xFFE3E2E8)),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Column(
+            child: Wrap(
               children: [
                 for (int index = 0; index < filteredList.length; index++)
                   Column(
