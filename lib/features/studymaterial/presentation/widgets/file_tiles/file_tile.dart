@@ -12,9 +12,14 @@ import 'package:studyportal/features/studymaterial/presentation/widgets/vertical
 
 class FileTile extends StatefulWidget implements Searchable {
   final FileType fileType;
+  final String courseCode;
   @override
   final String title;
-  const FileTile({super.key, required this.fileType, required this.title});
+  const FileTile(
+      {super.key,
+      required this.fileType,
+      required this.title,
+      required this.courseCode});
 
   @override
   State<FileTile> createState() => _FileTileState();

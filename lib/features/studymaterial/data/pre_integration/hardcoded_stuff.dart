@@ -9,11 +9,25 @@ import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pi
 class HardCodedConstants {
   static const List<FileTile> fileTiles = [
     FileTile(
-        fileType: FileType.link, title: "ETEs Final Notes - Fluid Dynamics"),
-    FileTile(fileType: FileType.book, title: "This is a file tile"),
-    FileTile(fileType: FileType.notes, title: "This is a file tile"),
-    FileTile(fileType: FileType.pyqs, title: "This is a file tile"),
-    FileTile(fileType: FileType.tut, title: "This is a file tile"),
+        fileType: FileType.link,
+        courseCode: "Circuit Analysis",
+        title: "ETEs Final Notes - Fluid Dynamics"),
+    FileTile(
+        fileType: FileType.book,
+        courseCode: "Structural Design",
+        title: "This is a file tile"),
+    FileTile(
+        fileType: FileType.notes,
+        courseCode: "Structural Design",
+        title: "This is a file tile"),
+    FileTile(
+        fileType: FileType.pyqs,
+        courseCode: "Circuit Analysis",
+        title: "This is a file tile"),
+    FileTile(
+        fileType: FileType.tut,
+        courseCode: "Circuit Analysis",
+        title: "This is a file tile"),
   ];
 
   static const List<DepartmentCard> departmentCards = [

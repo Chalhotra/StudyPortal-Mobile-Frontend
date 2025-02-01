@@ -37,7 +37,7 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
     return InkWell(
       onTap: onTap ??
           () {
-            Navigator.of(context).push(FilesListPage.route(title));
+            Navigator.of(context).push(FilesListPage.route(context, title));
           },
       child: Container(
         width: 160.w,
