@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_section/bookmarked_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/downloaded_section/downloaded_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/pinned_section/pinned_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/recent_section/recent_section.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/see_all_pinned_page/see_all_pinned_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/home_flow/see_all_pinned_page/see_all_pinned_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,45 +28,45 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(bottom: 20, top: 20),
                 width: size.width,
-                height: 50,
-                child: const Row(
+                height: 50.h,
+                child: Row(
                   children: [
                     Text(
                       "Home",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 24.sp),
                     ),
-                    Spacer()
+                    const Spacer()
                   ],
                 ),
               ),
               PinnedSection(
                 size: size,
-                courseCards: HardCodedConstants.courseCards,
+                departmentCards: HardCodedConstants.departmentCards,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const SeeAllPinnedPage()));
                 },
               ),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               RecentSection(
                   size: size, recentTiles: HardCodedConstants.recentTiles),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               BookmarkedSection(
                   size: size,
                   bookmarkedTiles: HardCodedConstants.bookmarkedTiles),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               DownloadedSection(
                   size: size,
                   downloadedTiles: HardCodedConstants.downloadedTiles),
-              const SizedBox(
-                height: 12,
+              SizedBox(
+                height: 12.h,
               ),
             ],
           ),

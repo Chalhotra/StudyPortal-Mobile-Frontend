@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_scroll_section/file_scroll_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/filter_tab/filter_tab.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/search_bar/custom_search_bar.dart';
 
@@ -47,124 +49,68 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 12),
+          margin: const EdgeInsets.symmetric(horizontal: 12).w,
           child: CustomSearchBar(
-            fileTiles: widget.fileTiles,
+            searchableItems: widget.fileTiles,
             screen: widget.screen,
             isFocused: _isFocused,
             focusNode: _focusNode,
           ),
         ),
         if (!_isFocused)
-          Container(
+          SizedBox(
               child: Column(
             children: [
               TabBar(
-                  isScrollable: true,
-                  tabAlignment: TabAlignment.start,
-                  controller: _tabController,
-                  dividerColor: Colors.transparent,
-                  indicator: const BoxDecoration(),
-                  labelStyle: const TextStyle(color: Colors.white),
-                  labelPadding: const EdgeInsets.only(left: 8, right: 12),
-                  onTap: (index) {
-                    setState(() {
-                      _selectedIndex = index;
-                    });
-                    _tabController.animateTo(index,
-                        duration: const Duration(milliseconds: 500));
-                  },
-                  tabs: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 0)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      margin: const EdgeInsets.only(left: 4),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "All",
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 1)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text("Notes"),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 2)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text("TUTs"),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 3)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text("PYQs"),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 4)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text("Books"),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: (_selectedIndex == 5)
-                              ? const Color.fromRGBO(38, 48, 83, 1.0)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(
-                              color: const Color(0xFFE3E2E8), width: 1)),
-                      padding: const EdgeInsets.all(3),
-                      width: 72,
-                      height: 36,
-                      alignment: Alignment.center,
-                      child: const Text("Links"),
-                    ),
-                  ]),
-              const SizedBox(
-                height: 20,
+                isScrollable: true,
+                tabAlignment: TabAlignment.start,
+                controller: _tabController,
+                dividerColor: Colors.transparent,
+                indicator: const BoxDecoration(),
+                labelStyle: const TextStyle(color: Colors.white),
+                labelPadding: const EdgeInsets.only(left: 8, right: 12).w,
+                onTap: (index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                  // _tabController.animateTo(index,
+                  //     duration: const Duration(milliseconds: 500));
+                },
+                tabs: [
+                  FilterTab(
+                    constraintIndex: 0,
+                    selectedIndex: _selectedIndex,
+                    title: "All",
+                  ),
+                  FilterTab(
+                    title: "Notes",
+                    selectedIndex: _selectedIndex,
+                    constraintIndex: 1,
+                  ),
+                  FilterTab(
+                    title: "TUTs",
+                    selectedIndex: _selectedIndex,
+                    constraintIndex: 2,
+                  ),
+                  FilterTab(
+                    title: "PYQs",
+                    selectedIndex: _selectedIndex,
+                    constraintIndex: 3,
+                  ),
+                  FilterTab(
+                    title: "Books",
+                    selectedIndex: _selectedIndex,
+                    constraintIndex: 4,
+                  ),
+                  FilterTab(
+                    title: "Links",
+                    selectedIndex: _selectedIndex,
+                    constraintIndex: 5,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               IndexedStack(
                 index: _selectedIndex,
@@ -173,7 +119,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 0,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12),
+                      margin: const EdgeInsets.symmetric(horizontal: 12).w,
                       child: FileScrollSection(
                           size: widget.size, fileTiles: widget.fileTiles),
                     ),
@@ -182,7 +128,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 1,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -195,7 +141,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 2,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -208,7 +154,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 3,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -221,7 +167,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 4,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles
@@ -234,7 +180,7 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                     maintainState: true,
                     visible: _selectedIndex == 5,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 12.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 12.0).w,
                       child: FileScrollSection(
                           size: widget.size,
                           fileTiles: widget.fileTiles

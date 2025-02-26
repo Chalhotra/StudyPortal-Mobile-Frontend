@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MoreInfoButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -15,14 +16,14 @@ class MoreInfoButton extends StatelessWidget {
         children: [
           Text(
             info,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-          ),
-          const SizedBox(
-            width: 2,
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
           ),
           SizedBox(
-            height: 16,
-            width: 16,
+            width: 2.w,
+          ),
+          SizedBox(
+            height: 16.h,
+            width: 16.w,
             child: icon,
           )
         ],

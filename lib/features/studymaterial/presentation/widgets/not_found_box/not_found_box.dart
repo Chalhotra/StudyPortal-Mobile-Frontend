@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class NotFoundBox extends StatelessWidget {
@@ -7,20 +8,17 @@ class NotFoundBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10).r,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(
-          color: const Color(0xFFF9CBCB),
-          width: 1,
-        ),
+        border: Border.all(color: const Color(0xFFF9CBCB), width: 1.w),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Column(
         children: [
           Center(
               child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10).r,
             child: SvgPicture.asset("lib/core/svgs/file_not_found.svg"),
           )),
           const Center(

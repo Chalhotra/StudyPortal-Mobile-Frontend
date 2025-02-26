@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bottom_navbar/sp_bottom_navbar.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/explore_page/explore_page.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/home_page/home_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/explore_flow/explore_page/explore_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/home_flow/home_page/home_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/profile_page/profile_page.dart';
 import 'package:studyportal/core/theme/theme_data.dart';
 
@@ -37,10 +38,17 @@ class _StudyPortalState extends State<StudyPortal> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: GlobalThemeData.lightThemeData,
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return ScreenUtilInit(
+      enableScaleWH: () => false,
+      enableScaleText: () => false,
+      builder: (context, child) {
+        return MaterialApp(
+          theme: GlobalThemeData.lightThemeData,
+          debugShowCheckedModeBanner: false,
+          home: child,
+        );
+      },
+      child: Scaffold(
         body: buildNavigator(),
         bottomNavigationBar:
             SPBottomNavBar(currentIndex: _currentIndex, onTap: _onTap),

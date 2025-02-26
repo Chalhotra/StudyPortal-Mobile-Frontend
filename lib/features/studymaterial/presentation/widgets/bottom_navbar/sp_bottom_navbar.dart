@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/core/theme/constants.dart';
 
@@ -16,17 +17,18 @@ class _SPBottomNavBarState extends State<SPBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      selectedLabelStyle: const TextStyle(
+      backgroundColor: Colors.white,
+      selectedLabelStyle: TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
       selectedItemColor: Theme.of(context).colorScheme.secondary,
-      unselectedLabelStyle: const TextStyle(
+      unselectedLabelStyle: TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
-      unselectedItemColor: const Color(spBottomNavBarUnselectedItemLabel),
-      selectedFontSize: 12,
+      unselectedItemColor: const Color(StudyPortalConstants.spGrey),
+      selectedFontSize: 12.sp,
       items: [
         BottomNavigationBarItem(
             activeIcon: SvgPicture.asset("lib/core/svgs/home_icon_active.svg"),
