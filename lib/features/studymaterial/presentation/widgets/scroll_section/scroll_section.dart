@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
-import 'dart:math';
 
 class ScrollSection extends StatelessWidget {
   const ScrollSection({
@@ -38,10 +37,10 @@ class ScrollSection extends StatelessWidget {
               padding: const EdgeInsets.only(left: 12.0, bottom: 12.0).r,
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Color(
+                  fontSize: 20.sp,
+                  color: const Color(
                     StudyPortalConstants.spGrey,
                   ),
                 ),

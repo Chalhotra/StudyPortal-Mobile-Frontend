@@ -26,7 +26,7 @@ class SPMaterialButton extends StatelessWidget {
           },
       child: Text(
         text,
-        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.sp),
       ),
     );
   }

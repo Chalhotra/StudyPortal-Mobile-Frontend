@@ -23,10 +23,10 @@ class GlobalThemeData {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        hintStyle: const TextStyle(
-            fontSize: 16,
+        hintStyle: TextStyle(
+            fontSize: 16.sp,
             fontWeight: FontWeight.w500,
-            color: Color.fromRGBO(99, 102, 117, 1.0)),
+            color: const Color.fromRGBO(99, 102, 117, 1.0)),
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(

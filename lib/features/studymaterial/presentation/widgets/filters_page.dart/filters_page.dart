@@ -39,19 +39,19 @@ class _FiltersPageState extends State<FiltersPage>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               "Filters",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
             ),
             SizedBox(
               height: 24.h,
             ),
-            const Text(
+            Text(
               "Degree",
               style: TextStyle(
-                color: Color(StudyPortalConstants.spGrey),
+                color: const Color(StudyPortalConstants.spGrey),
                 fontWeight: FontWeight.w500,
-                fontSize: 20,
+                fontSize: 20.sp,
               ),
             ),
             SizedBox(
@@ -90,12 +90,12 @@ class _FiltersPageState extends State<FiltersPage>
             SizedBox(
               height: 32.h,
             ),
-            const Text(
+            Text(
               "Year",
               style: TextStyle(
-                color: Color(StudyPortalConstants.spGrey),
+                color: const Color(StudyPortalConstants.spGrey),
                 fontWeight: FontWeight.w500,
-                fontSize: 20,
+                fontSize: 20.sp,
               ),
             ),
             SizedBox(

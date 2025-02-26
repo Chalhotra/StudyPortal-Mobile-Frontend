@@ -19,29 +19,32 @@ void showReportSheet(BuildContext context) {
                 children: [
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         "Report",
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const Spacer(),
                       IconButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          icon: SvgPicture.asset(
-                              "lib/core/svgs/close_button.svg")),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon:
+                            SvgPicture.asset("lib/core/svgs/close_button.svg"),
+                      ),
                     ],
                   ),
                   SizedBox(
                     height: 24.h,
                   ),
-                  const Text(
+                  Text(
                     "Report description",
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xFF393939)),
+                        color: const Color(0xFF393939)),
                   ),
                   SizedBox(
                     height: 10.h,

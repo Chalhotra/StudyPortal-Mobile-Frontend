@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tabs/file_tabs.dart';
 
@@ -23,7 +24,7 @@ class FilesListPage extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             courseCode,
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24.sp),
           ),
         ),
       ),

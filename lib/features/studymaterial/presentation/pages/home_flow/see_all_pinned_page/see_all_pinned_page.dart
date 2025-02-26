@@ -12,23 +12,23 @@ class SeeAllPinnedPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
-        title: const Align(
+        title: Align(
           alignment: Alignment.centerLeft,
           child: Text(
             "Pinned",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24.sp),
           ),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0).r,
           child: ListView(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             children: [
-              const ScrollSection(
-                  scrollSectionHeight: 160 * 4 - 18,
+              ScrollSection(
+                  scrollSectionHeight: (160 * 4 - 18).h,
                   scroll: true,
                   rows: 4,
                   departmentCards: HardCodedConstants.departmentCards),

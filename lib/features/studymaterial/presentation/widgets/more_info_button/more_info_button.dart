@@ -16,7 +16,7 @@ class MoreInfoButton extends StatelessWidget {
         children: [
           Text(
             info,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
           ),
           SizedBox(
             width: 2.w,

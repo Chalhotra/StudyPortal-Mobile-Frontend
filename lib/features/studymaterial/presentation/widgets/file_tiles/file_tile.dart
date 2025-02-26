@@ -38,10 +38,10 @@ class _FileTileState extends State<FileTile> {
             constraints: BoxConstraints(maxWidth: 252.w),
             child: Text(
               widget.title,
-              style: const TextStyle(
+              style: TextStyle(
                   overflow: TextOverflow.ellipsis,
                   fontWeight: FontWeight.w400,
-                  fontSize: 14),
+                  fontSize: 14.sp),
             ),
           ),
           const Spacer(),

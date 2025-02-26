@@ -16,17 +16,17 @@ class MoreVerticalDots extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton(
       constraints: BoxConstraints(maxHeight: 120.h, maxWidth: 120.w),
-      padding: const EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       elevation: 0,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-          side: const BorderSide(
-              width: 1,
-              color: Color(
+          borderRadius: BorderRadius.circular(4.r),
+          side: BorderSide(
+              width: 1.w,
+              color: const Color(
                 StudyPortalConstants.spStrokeGrey,
               ))),
       color: Colors.white,
-      menuPadding: const EdgeInsets.only(top: 6.0, bottom: 7.0).r,
+      menuPadding: EdgeInsets.only(top: 6.h, bottom: 7.h),
       itemBuilder: (context) => [
         SPPopupMenuItem(
             img: "lib/core/svgs/bookmark.svg",
@@ -50,7 +50,6 @@ class MoreVerticalDots extends StatelessWidget {
         colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
         height: height ?? 16.h,
         width: width ?? 16.w,
-        //Add onTap to show drop down menu
       ),
     );
   }

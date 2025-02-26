@@ -29,14 +29,14 @@ class HomePage extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 20, top: 20),
                 width: size.width,
                 height: 50.h,
-                child: const Row(
+                child: Row(
                   children: [
                     Text(
                       "Home",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 24.sp),
                     ),
-                    Spacer()
+                    const Spacer()
                   ],
                 ),
               ),

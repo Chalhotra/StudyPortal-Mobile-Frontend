@@ -7,7 +7,6 @@ import 'package:studyportal/features/studymaterial/domain/entities/department.da
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/filters_page.dart/filters_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/search_bar/custom_search_bar.dart';
 
 class CourseListPage extends StatefulWidget {
   static MaterialPageRoute route(Department dept) {
@@ -27,11 +26,12 @@ class _CourseListPageState extends State<CourseListPage> {
   List<CourseCard> courseCards = [];
   final FocusNode _focusNode = FocusNode();
   bool _isFocused = false;
+
   void _showModalBottomSheet() {
     showModalBottomSheet<void>(
       useSafeArea: true,
       isScrollControlled: true,
-      constraints: const BoxConstraints(minHeight: double.infinity),
+      constraints: BoxConstraints(minHeight: double.infinity.h),
       context: context,
       builder: (context) {
         return const FiltersPage();
@@ -48,82 +48,85 @@ class _CourseListPageState extends State<CourseListPage> {
         }));
   }
 
-  Map<int, List<CourseCard>> _groupBySemester(List<CourseCard> courseCards) {
-    Map<int, List<CourseCard>> mp = {};
+  Map<int, List<CourseCard>> _groupCoursesBySemester(
+      List<CourseCard> courseCards) {
+    Map<int, List<CourseCard>> semesterCourses = {};
 
     for (var courseCard in courseCards) {
-      mp.putIfAbsent(courseCard.semester, () => []).add(courseCard);
+      semesterCourses
+          .putIfAbsent(courseCard.semester, () => [])
+          .add(courseCard);
     }
 
-    return mp;
+    return semesterCourses;
   }
 
   @override
   Widget build(BuildContext context) {
-    // Assuming 'department' is the value you want to filter by
     final filteredCourseCards = courseCards
         .where((courseCard) =>
             courseCard.department.title == widget.department.title)
         .toList();
 
     final Map<int, List<CourseCard>> semesterWiseCourseCards =
-        _groupBySemester(filteredCourseCards);
+        _groupCoursesBySemester(filteredCourseCards);
 
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 20, top: 20),
+                margin: EdgeInsets.only(bottom: 20.h, top: 20.h),
                 height: 50.h,
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back_ios,
-                        color: Color(StudyPortalConstants.spRoyalBlue),
+                        color: const Color(StudyPortalConstants.spRoyalBlue),
+                        size: 24.r,
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.75,
+                      width: MediaQuery.of(context).size.width * 0.75.w,
                       child: Text(
                         "${widget.department.title} Department",
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24.sp),
                       ),
                     ),
                     const Spacer(),
                     InkWell(
                       onTap: _showModalBottomSheet,
-                      child: SvgPicture.asset("lib/core/svgs/filters.svg"),
+                      child: SvgPicture.asset("lib/core/svgs/filters.svg",
+                          width: 24.w, height: 24.h),
                     ),
-                    // const Spacer(),
                   ],
                 ),
               ),
-
               TextField(
                 decoration: InputDecoration(
                   hintText: "Search in ${widget.department.title} Department",
-                  prefixIcon: SvgPicture.asset(
-                    "lib/core/svgs/search_icon.svg",
-                    fit: BoxFit.scaleDown,
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(10.r),
+                    child: SvgPicture.asset(
+                      "lib/core/svgs/search_icon.svg",
+                      fit: BoxFit.scaleDown,
+                      width: 20.w,
+                      height: 20.h,
+                    ),
                   ),
                 ),
               ),
-
-              SizedBox(
-                  height: 10
-                      .h), //chetak: Not to be used, not complete, bas placeholder searchbar type hai
+              SizedBox(height: 10.h),
               Expanded(
                 child: ListView.separated(
                   separatorBuilder: (context, index) {
-                    return const SizedBox(height: 24);
+                    return SizedBox(height: 24.h);
                   },
                   itemCount: semesterWiseCourseCards.entries.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -136,7 +139,7 @@ class _CourseListPageState extends State<CourseListPage> {
 
                     return ScrollSection(
                       scrollSectionHeight:
-                          (160 * numberOfRows * 1.0 + 12 * (numberOfRows - 1)),
+                          (160.h * numberOfRows + 12.h * (numberOfRows - 1)),
                       title: "Semester $semester",
                       rows: 3.5,
                       departmentCards: courses,

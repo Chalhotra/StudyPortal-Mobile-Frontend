@@ -38,9 +38,9 @@ class PinnedSection extends StatelessWidget {
               SizedBox(
                 width: 4.w,
               ),
-              const Text(
+              Text(
                 "Pinned",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
             ],
           ),

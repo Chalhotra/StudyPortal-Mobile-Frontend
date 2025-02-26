@@ -42,9 +42,9 @@ class DownloadedSection extends StatelessWidget {
                   width: 16.w,
                 ),
               ),
-              const Text(
+              Text(
                 "Downloaded",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               )
             ],
           ),

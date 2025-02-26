@@ -78,22 +78,23 @@ class DepartmentCard extends StatelessWidget implements Searchable {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                          overflow: TextOverflow.clip,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16),
+                      style: TextStyle(
+                        overflow: TextOverflow.clip,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp,
+                      ),
                     ),
                     SizedBox(
                       height: 4.h,
                     ),
                     Text(
                       subtitle,
-                      style: const TextStyle(
+                      style: TextStyle(
                         overflow: TextOverflow.clip,
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
-                        fontSize: 12,
+                        fontSize: 12.sp,
                       ),
                     ),
                   ],

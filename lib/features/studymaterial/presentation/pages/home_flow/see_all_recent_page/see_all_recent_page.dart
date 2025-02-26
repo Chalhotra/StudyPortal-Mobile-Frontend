@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tabs/file_tabs.dart';
 
@@ -12,11 +13,11 @@ class SeeAllRecentPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
-        title: const Align(
+        title: Align(
           alignment: Alignment.centerLeft,
           child: Text(
             "Recent",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24.sp),
           ),
         ),
       ),

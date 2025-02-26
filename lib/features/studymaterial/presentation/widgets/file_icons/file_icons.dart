@@ -57,8 +57,8 @@ class FileIcon extends StatelessWidget {
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(4)),
       child: Text(
         title,
-        style: const TextStyle(
-            fontWeight: FontWeight.w600, fontSize: 10, color: Colors.white),
+        style: TextStyle(
+            fontWeight: FontWeight.w600, fontSize: 10.sp, color: Colors.white),
       ),
     );
   }
