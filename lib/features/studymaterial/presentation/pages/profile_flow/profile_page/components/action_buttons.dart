@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/profile_buttons/profile_button.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/activity_page/activity_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/profile_flow/activity_page/activity_page.dart';
 
 class ActionButtons extends StatelessWidget {
   const ActionButtons({super.key});

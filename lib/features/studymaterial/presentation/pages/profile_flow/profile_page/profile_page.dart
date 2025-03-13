@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/profile_page/components/your_contributions.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/profile_page/components/action_buttons.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/profile_flow/profile_page/components/your_contributions.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/profile_flow/profile_page/components/action_buttons.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
