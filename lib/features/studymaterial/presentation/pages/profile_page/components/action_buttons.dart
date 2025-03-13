@@ -24,7 +24,7 @@ class ActionButtons extends StatelessWidget {
             iconPath: "lib/core/svgs/upload.svg",
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ActivityPage()));
+                  builder: (context) => ActivityPage()));
             },
           ),
           ProfileButton(
@@ -33,7 +33,7 @@ class ActionButtons extends StatelessWidget {
             iconPath: "lib/core/svgs/request.svg",
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ActivityPage()));
+                  builder: (context) => ActivityPage()));
             },
           ),
           ProfileButton(
@@ -42,7 +42,7 @@ class ActionButtons extends StatelessWidget {
             iconPath: "lib/core/svgs/activity.svg",
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ActivityPage()));
+                  builder: (context) => ActivityPage()));
             },
           ),
           Container(

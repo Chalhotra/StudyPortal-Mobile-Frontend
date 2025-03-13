@@ -1,120 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/activity_card/activity_card.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/tools/activity_status_enum.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
+import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 
 class ActivityPage extends StatelessWidget {
-  const ActivityPage({super.key});
+  ActivityPage({super.key});
+
+  List<Activity> activities = HardCodedConstants.activities;
 
   @override
   Widget build(BuildContext context) {
-    List<Activity> activities = [
-      Activity(
-          title: "HC Verma Physics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.notes),
-      Activity(
-          title: "Yes",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.tut),
-      Activity(
-          title: "Sample test title",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.rejected,
-          message: "message",
-          fileType: FileType.book),
-      Activity(
-          title: "Mathematics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.link),
-      Activity(
-          title: "Short",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.pyqs),
-      Activity(
-          title: "HC Verma Physics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.notes),
-      Activity(
-          title: "Yes",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.tut),
-      Activity(
-          title: "Sample test title",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.rejected,
-          message: "message",
-          fileType: FileType.book),
-      Activity(
-          title: "Mathematics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.link),
-      Activity(
-          title: "Short",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.pyqs),
-      Activity(
-          title: "HC Verma Physics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.notes),
-      Activity(
-          title: "Yes",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.tut),
-      Activity(
-          title: "Sample test title",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.rejected,
-          message: "message",
-          fileType: FileType.book),
-      Activity(
-          title: "Mathematics",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.approved,
-          message: "message",
-          fileType: FileType.link),
-      Activity(
-          title: "Short",
-          courseCode: "CSN-001",
-          date: DateTime.now(),
-          status: ActivityStatus.pending,
-          message: "message",
-          fileType: FileType.pyqs),
-    ];
 
     return Scaffold(
       appBar: AppBar(
