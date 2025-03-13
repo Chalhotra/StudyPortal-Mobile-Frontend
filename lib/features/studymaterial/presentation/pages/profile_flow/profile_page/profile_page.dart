@@ -42,7 +42,7 @@ class ProfilePage extends StatelessWidget {
                       height: 72,
                       width: 72,
                       child: Image.asset(
-                        'lib/core/images/kambli.png',
+                        'lib/features/studymaterial/data/pre_integration/kambli.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),

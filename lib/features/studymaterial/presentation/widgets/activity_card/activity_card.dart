@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/activity_status_enum.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_icons/file_icons.dart';
@@ -42,7 +43,7 @@ class ActivityCard extends StatelessWidget {
                     top: 12, left: 12, right: 12, bottom: 12),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  border: Border(top: BorderSide(color: Color(0xFFE3E2E8))),
+                  border: Border(top: BorderSide(color: Color(StudyPortalConstants.spStrokeGrey))),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8),
                     topRight: Radius.circular(8),
@@ -100,7 +101,7 @@ class ActivityCard extends StatelessWidget {
               width: size.width,
               height: 2,
               child: Container(
-                color: const Color(0xFFE3E2E8),
+                color: const Color(StudyPortalConstants.spStrokeGrey),
               ),
             ),
             Container(
@@ -109,7 +110,7 @@ class ActivityCard extends StatelessWidget {
                 width: size.width,
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  border: Border(bottom: BorderSide(color: Color(0xFFE3E2E8))),
+                  border: Border(bottom: BorderSide(color: Color(StudyPortalConstants.spStrokeGrey))),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8),

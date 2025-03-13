@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/profile_buttons/profile_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/profile_flow/activity_page/activity_page.dart';
 
@@ -12,7 +13,7 @@ class ActionButtons extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: const Color(0xFFE3E2E8)),
+        border: Border.all(color: const Color(StudyPortalConstants.spStrokeGrey)),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(

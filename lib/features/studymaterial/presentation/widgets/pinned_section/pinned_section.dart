@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
 
 class PinnedSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class PinnedSection extends StatelessWidget {
       padding: const EdgeInsets.all(12).r,
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: const Color(0xFFE3E2E8), width: 1.w),
+          border: Border.all(color: const Color(StudyPortalConstants.spStrokeGrey), width: 1.w),
           borderRadius: BorderRadius.circular(8)),
       width: size.width.w,
       child: Column(
