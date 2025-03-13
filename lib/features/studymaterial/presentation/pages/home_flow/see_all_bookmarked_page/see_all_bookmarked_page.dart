@@ -27,6 +27,7 @@ class SeeAllBookmarkedPage extends StatelessWidget {
             return FileTile(
               title: file.name,
               fileType: fileType,
+              courseCode: file.courseId, // Need to change this, instead of courseId use courseCode
             );
             //add onTap
           }).toList();
