@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
-import 'package:studyportal/features/studymaterial/presentation/pages/see_all_bookmarked_page/see_all_bookmarked_page.dart';
+import 'package:studyportal/features/studymaterial/presentation/pages/home_flow/see_all_bookmarked_page/see_all_bookmarked_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
 class BookmarkedSection extends StatelessWidget {
@@ -21,9 +22,9 @@ class BookmarkedSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 320,
+      height: 322.h,
       padding: const EdgeInsets.all(12),
-      width: size.width,
+      width: size.width.w,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: const Color(0xFFE3E2E8)),
@@ -41,21 +42,21 @@ class BookmarkedSection extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   "lib/core/svgs/bookmarked_icon.svg",
-                  height: 16,
-                  width: 16,
+                  height: 16.h,
+                  width: 16.w,
                 ),
               ),
-              const Text(
+              Text(
                 "Bookmarked",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               )
             ],
           ),
-          const SizedBox(
-            height: 13,
+          SizedBox(
+            height: 13.h,
           ),
           SizedBox(
-            height: 228,
+            height: 230.h,
             child: BlocBuilder<FetchBookmarksCubit, FetchBookmarksState>(
               builder: (context, state) {
                 if (state is FetchBookmarksLoading ||
@@ -71,7 +72,6 @@ class BookmarkedSection extends StatelessWidget {
                     return FileTile(
                       title: file.name,
                       fileType: fileType,
-                      onTap: () => {},
                     );
                     //add onTap
                   }).toList();
@@ -88,8 +88,8 @@ class BookmarkedSection extends StatelessWidget {
                         return bookmarkedTiles[index];
                       },
                       separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          height: 13,
+                        return SizedBox(
+                          height: 13.h,
                         );
                       },
                     );
@@ -99,8 +99,8 @@ class BookmarkedSection extends StatelessWidget {
               },
             ),
           ),
-          const SizedBox(
-            height: 9,
+          SizedBox(
+            height: 9.h,
           ),
           Row(
             children: [
@@ -113,8 +113,8 @@ class BookmarkedSection extends StatelessWidget {
                   info: "See all",
                   icon: SvgPicture.asset(
                     "lib/core/svgs/right_caret.svg",
-                    height: 16,
-                    width: 16,
+                    height: 16.h,
+                    width: 16.w,
                   )),
             ],
           ),

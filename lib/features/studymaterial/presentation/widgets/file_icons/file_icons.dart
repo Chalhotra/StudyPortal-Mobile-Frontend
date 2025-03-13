@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
 class FileIcons extends StatelessWidget {
@@ -48,16 +49,16 @@ class FileIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5).r,
       alignment: Alignment.center,
-      height: 46,
-      width: 46,
+      height: 46.r,
+      width: 46.r,
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(4)),
       child: Text(
         title,
-        style: const TextStyle(
-            fontWeight: FontWeight.w600, fontSize: 10, color: Colors.white),
+        style: TextStyle(
+            fontWeight: FontWeight.w600, fontSize: 10.sp, color: Colors.white),
       ),
     );
   }
