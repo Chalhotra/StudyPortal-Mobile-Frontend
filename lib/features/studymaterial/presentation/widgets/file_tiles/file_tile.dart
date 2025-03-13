@@ -14,8 +14,7 @@ class FileTile extends StatefulWidget implements Searchable {
       {super.key,
       required this.fileType,
       required this.title,
-      required this.courseCode
-    });
+      required this.courseCode});
 
   @override
   State<FileTile> createState() => _FileTileState();

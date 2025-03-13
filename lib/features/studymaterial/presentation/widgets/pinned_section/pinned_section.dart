@@ -64,7 +64,8 @@ class PinnedSection extends StatelessWidget {
                 return Text(state.message);
               } else if (state is FetchPinsLoaded) {
                 int index = 0;
-                final List<DepartmentCard> pinnedCards = state.pins.map((branch) {
+                final List<DepartmentCard> pinnedCards =
+                    state.pins.map((branch) {
                   index++;
                   return DepartmentCard(
                     title: branch.name,

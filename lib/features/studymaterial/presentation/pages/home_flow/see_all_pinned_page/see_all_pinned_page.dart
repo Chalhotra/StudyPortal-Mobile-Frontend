@@ -34,34 +34,35 @@ class SeeAllPinnedPage extends StatelessWidget {
             );
             //add onTap
           }).toList();
-return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "Pinned",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24.sp),
-          ),
-        ),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0).r,
-          child: ListView(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            children: [
-              ScrollSection(
-                  scrollSectionHeight: (160 * 4 - 18).h,
-                  scroll: true,
-                  rows: 4,
-                  departmentCards: pinnedCards),
-              SizedBox(height: 20.h),
-            ],
-          ),
-        ),
-      ),
+          return Scaffold(
+            appBar: AppBar(
+              titleSpacing: 0,
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Pinned",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 24.sp),
+                ),
+              ),
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0).r,
+                child: ListView(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    ScrollSection(
+                        scrollSectionHeight: (160 * 4 - 18).h,
+                        scroll: true,
+                        rows: 4,
+                        departmentCards: pinnedCards),
+                    SizedBox(height: 20.h),
+                  ],
+                ),
+              ),
+            ),
           );
         }
         return const SizedBox.shrink();

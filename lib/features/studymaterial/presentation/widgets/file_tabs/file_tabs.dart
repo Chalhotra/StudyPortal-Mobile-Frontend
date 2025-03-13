@@ -192,8 +192,8 @@ class _FilterTabBarState extends State<FileTabs> with TickerProviderStateMixin {
                 ],
               )
             ],
-          )
-    )],
+          ))
+      ],
     );
   }
 }

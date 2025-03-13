@@ -44,7 +44,8 @@ class _ExplorePageState extends State<ExplorePage>
           return Text(state.message);
         } else if (state is FetchBranchesLoaded) {
           int index = 0;
-          final List<DepartmentCard> departmentCards = state.branches.map((branch) {
+          final List<DepartmentCard> departmentCards =
+              state.branches.map((branch) {
             index++;
             return DepartmentCard(
               title: branch.name,
@@ -56,77 +57,76 @@ class _ExplorePageState extends State<ExplorePage>
             //add onTap
           }).toList();
           return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.w),
-          child: Column(
-            children: [
-              SizedBox(height: 20.h),
-              Row(
-                children: [
-                  Text(
-                    "Explore",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 24.sp,
-                    ),
+              body: SafeArea(
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Column(children: [
+                  SizedBox(height: 20.h),
+                  Row(
+                    children: [
+                      Text(
+                        "Explore",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24.sp,
+                        ),
+                      ),
+                      const Spacer(),
+                    ],
                   ),
-                  const Spacer(),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              Container(
-                height: 40.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.r),
-                  color: const Color(0xFFC8CBDC),
-                ),
-                child: TabBar(
-                  controller: _tabController,
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
-                    border: Border.all(
+                  SizedBox(height: 20.h),
+                  Container(
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6.r),
                       color: const Color(0xFFC8CBDC),
-                      width: 2.w,
                     ),
-                    color: Colors.white,
+                    child: TabBar(
+                      controller: _tabController,
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.r),
+                        border: Border.all(
+                          color: const Color(0xFFC8CBDC),
+                          width: 2.w,
+                        ),
+                        color: Colors.white,
+                      ),
+                      dividerColor: Colors.transparent,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      labelStyle: TextStyle(
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.w500,
+                        color: const Color.fromRGBO(38, 48, 83, 1.0),
+                      ),
+                      tabs: const [
+                        Tab(text: "Academics"),
+                        Tab(text: "More"),
+                      ],
+                    ),
                   ),
-                  dividerColor: Colors.transparent,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  labelStyle: TextStyle(
-                    fontSize: 17.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color.fromRGBO(38, 48, 83, 1.0),
+                  SizedBox(height: 20.h),
+                  Expanded(
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: [
+                        ScrollSection(
+                          scrollSectionHeight: 160.h * 3.5 - 33.h,
+                          scroll: true,
+                          rows: 3.5,
+                          departmentCards: departmentCards,
+                        ),
+                        ScrollSection(
+                          scrollSectionHeight: 160.h * 3.5 - 33.h,
+                          scroll: true,
+                          rows: 3.5,
+                          departmentCards: departmentCards.length > 2
+                              ? [departmentCards[1], departmentCards[2]]
+                              : [],
+                        ),
+                      ],
+                    ),
                   ),
-                  tabs: const [
-                    Tab(text: "Academics"),
-                    Tab(text: "More"),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [
-                    ScrollSection(
-                      scrollSectionHeight: 160.h * 3.5 - 33.h,
-                      scroll: true,
-                      rows: 3.5,
-                      departmentCards: departmentCards,
-                    ),
-                    ScrollSection(
-                      scrollSectionHeight: 160.h * 3.5 - 33.h,
-                      scroll: true,
-                      rows: 3.5,
-                      departmentCards: departmentCards.length > 2
-                          ? [departmentCards[1], departmentCards[2]]
-                          : [],
-                    ),
-                  ],
-                ),
-              ),
-            ])),
+                ])),
           ));
         }
         return const SizedBox.shrink();

@@ -9,7 +9,7 @@ class LoadExplorePage implements UseCase<List<Branch>> {
   const LoadExplorePage(this.repository);
 
   @override
-  Future<Either<Failure, List<Branch>>> call() async {
+  Future<Either<Failure, List<Branch>>> call({String? param}) async {
     return await repository.loadExplorePage();
   }
 }

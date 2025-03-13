@@ -9,7 +9,7 @@ class FetchPins implements UseCase<List<Branch>> {
   const FetchPins(this.repository);
 
   @override
-  Future<Either<Failure, List<Branch>>> call() async {
+  Future<Either<Failure, List<Branch>>> call({String? param}) async {
     return await repository.fetchPins();
   }
 }
