@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/activity_card/activity_card.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 
 class ActivityPage extends StatelessWidget {
   ActivityPage({super.key});
 
-  List<Activity> activities = HardCodedConstants.activities;
+  final List<Activity> activities = HardCodedConstants.activities;
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:studyportal/core/theme/constants.dart';
-import 'package:studyportal/core/widgets/sp_material_button/sp_material_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/utils/searchable.dart';
-import 'package:studyportal/features/studymaterial/presentation/utils/show_report_sheet/show_report_sheet.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_icons/file_icons.dart';
 
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
