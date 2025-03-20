@@ -64,40 +64,40 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, bool>> addBookmark(Bookmark bookmark) async {
+  Future<Either<Failure, Bookmark>> addBookmark(Bookmark bookmark) async {
     try {
       await remoteDataSource.addBookmark(bookmark);
-      return right(true);
+      return right(bookmark);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
   }
 
   @override
-  Future<Either<Failure, bool>> addPin(Pin pin) async {
+  Future<Either<Failure, Pin>> addPin(Pin pin) async {
     try {
       await remoteDataSource.addPin(pin);
-      return right(true);
+      return right(pin);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
   }
 
   @override
-  Future<Either<Failure, bool>> removeBookmark(Bookmark bookmark) async {
+  Future<Either<Failure, Bookmark>> removeBookmark(Bookmark bookmark) async {
     try {
       await remoteDataSource.removeBookmark(bookmark);
-      return right(true);
+      return right(bookmark);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
   }
 
   @override
-  Future<Either<Failure, bool>> removePin(Pin pin) async {
+  Future<Either<Failure, Pin>> removePin(Pin pin) async {
     try {
       await remoteDataSource.removePin(pin);
-      return right(true);
+      return right(pin);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }

@@ -4,12 +4,12 @@ import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
-class AddPin implements UseCase<bool, Pin> {
+class AddPin implements UseCase<Pin, Pin> {
   final Repository repository;
   const AddPin(this.repository);
 
   @override
-  Future<Either<Failure, bool>> call(Pin pin) async {
+  Future<Either<Failure, Pin>> call(Pin pin) async {
     return await repository.addPin(pin);
   }
 }

@@ -185,7 +185,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<void> removeBookmark(Bookmark bookmark) async {
     try {
-      final response = await http.post(
+      final response = await http.delete(
         Uri.parse("$apiEndpoint/api/remove-bookmark"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -205,7 +205,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<void> removePin(Pin pin) async {
     try {
-      final response = await http.post(
+      final response = await http.delete(
         Uri.parse("$apiEndpoint/api/remove-pin"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

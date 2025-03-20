@@ -12,8 +12,8 @@ abstract interface class Repository {
   Future<Either<Failure, List<File>>> fetchBookmarks();
   Future<Either<Failure, List<Course>>> fetchCourses(String branchId);
   Future<Either<Failure, List<File>>> fetchFiles(String courseId);
-  Future<Either<Failure, bool>> addPin(Pin pin);
-  Future<Either<Failure, bool>> addBookmark(Bookmark bookmark);
-  Future<Either<Failure, bool>> removePin(Pin pin);
-  Future<Either<Failure, bool>> removeBookmark(Bookmark bookmark);
+  Future<Either<Failure, Pin>> addPin(Pin pin);
+  Future<Either<Failure, Bookmark>> addBookmark(Bookmark bookmark);
+  Future<Either<Failure, Pin>> removePin(Pin pin);
+  Future<Either<Failure, Bookmark>> removeBookmark(Bookmark bookmark);
 }

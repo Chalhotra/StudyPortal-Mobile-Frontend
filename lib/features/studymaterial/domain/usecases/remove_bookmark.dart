@@ -4,12 +4,12 @@ import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/bookmark.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
-class RemoveBookmark implements UseCase<bool, Bookmark> {
+class RemoveBookmark implements UseCase<Bookmark, Bookmark> {
   final Repository repository;
   const RemoveBookmark(this.repository);
 
   @override
-  Future<Either<Failure, bool>> call(Bookmark bookmark) async {
+  Future<Either<Failure, Bookmark>> call(Bookmark bookmark) async {
     return await repository.removeBookmark(bookmark);
   }
 }
