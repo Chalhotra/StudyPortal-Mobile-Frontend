@@ -1,6 +1,6 @@
 part of 'add_bookmark_cubit.dart';
 
-sealed class AddBookmarkState extends Equatable {
+abstract class AddBookmarkState extends Equatable {
   const AddBookmarkState();
 
   @override
