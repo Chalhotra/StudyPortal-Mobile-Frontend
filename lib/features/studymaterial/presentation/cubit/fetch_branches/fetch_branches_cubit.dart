@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/load_explore_page.dart';
 
@@ -11,9 +12,9 @@ class FetchBranchesCubit extends Cubit<FetchBranchesState> {
   FetchBranchesCubit({required this.loadExplorePage})
       : super(FetchBranchesInitial());
 
-  Future<void> fetchBranches() async {
+  Future<void> getBranches() async {
     emit(FetchBranchesLoading());
-    final response = await loadExplorePage();
+    final response = await loadExplorePage(NoParams());
     response.fold((failure) => emit(FetchBranchesFailure(failure.message)),
         (branches) => emit(FetchBranchesLoaded(branches)));
   }

@@ -14,7 +14,7 @@ class SeeAllPinnedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // var size = MediaQuery.of(context).size;
-    context.read<FetchPinsCubit>().fetchPins();
+    context.read<FetchPinsCubit>().getPins();
     return BlocBuilder<FetchPinsCubit, FetchPinsState>(
       builder: (context, state) {
         if (state is FetchPinsLoading || state is FetchPinsInitial) {

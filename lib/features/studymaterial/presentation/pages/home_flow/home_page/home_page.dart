@@ -15,8 +15,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read()<FetchPinsCubit>().getPins();
-    context.read()<FetchBookmarksCubit>().getBookmarks();
+    context.read<FetchPinsCubit>().getPins();
+    context.read<FetchBookmarksCubit>().getBookmarks();
     var size = MediaQuery.of(context).size;
     return Scaffold(
         body: SafeArea(

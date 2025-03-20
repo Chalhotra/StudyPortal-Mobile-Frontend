@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_bookmarks.dart';
 
@@ -13,7 +14,7 @@ class FetchBookmarksCubit extends Cubit<FetchBookmarksState> {
 
   Future<void> getBookmarks() async {
     emit(FetchBookmarksLoading());
-    final response = await fetchBookmarks();
+    final response = await fetchBookmarks(NoParams());
     response.fold((failure) => emit(FetchBookmarksFailure(failure.message)),
         (bookmarks) => emit(FetchBookmarksLoaded(bookmarks)));
   }

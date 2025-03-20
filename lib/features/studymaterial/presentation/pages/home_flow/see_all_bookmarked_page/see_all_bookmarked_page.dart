@@ -11,7 +11,7 @@ class SeeAllBookmarkedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read()<FetchBookmarksCubit>().getBookmarks();
+    context.read<FetchBookmarksCubit>().getBookmarks();
     var size = MediaQuery.of(context).size;
 
     return BlocBuilder<FetchBookmarksCubit, FetchBookmarksState>(
@@ -28,7 +28,7 @@ class SeeAllBookmarkedPage extends StatelessWidget {
               title: file.name,
               fileType: fileType,
               courseCode: file
-                  .courseId, // Need to change this, instead of courseId use courseCode
+                  .courseCode, // Need to change this, instead of courseId use courseCode
             );
             //add onTap
           }).toList();

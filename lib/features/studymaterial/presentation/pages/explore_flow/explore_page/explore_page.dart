@@ -35,7 +35,7 @@ class _ExplorePageState extends State<ExplorePage>
 
   @override
   Widget build(BuildContext context) {
-    context.read<FetchBranchesCubit>().fetchBranches();
+    context.read<FetchBranchesCubit>().getBranches();
     return BlocBuilder<FetchBranchesCubit, FetchBranchesState>(
       builder: (context, state) {
         if (state is FetchBranchesLoading || state is FetchBranchesInitial) {

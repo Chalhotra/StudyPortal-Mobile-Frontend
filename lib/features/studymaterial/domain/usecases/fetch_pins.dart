@@ -4,12 +4,12 @@ import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
-class FetchPins implements UseCase<List<Branch>> {
+class FetchPins implements UseCase<List<Branch>, NoParams> {
   final Repository repository;
   const FetchPins(this.repository);
 
   @override
-  Future<Either<Failure, List<Branch>>> call({String? param}) async {
+  Future<Either<Failure, List<Branch>>> call(NoParams params) async {
     return await repository.fetchPins();
   }
 }

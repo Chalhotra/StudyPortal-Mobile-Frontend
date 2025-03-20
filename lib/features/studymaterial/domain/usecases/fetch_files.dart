@@ -4,12 +4,12 @@ import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
-class FetchFiles implements UseCase<List<File>> {
+class FetchFiles implements UseCase<List<File>, String> {
   final Repository repository;
   const FetchFiles(this.repository);
 
   @override
-  Future<Either<Failure, List<File>>> call({String? param}) async {
-    return await repository.fetchFiles(param!);
+  Future<Either<Failure, List<File>>> call(String courseId) async {
+    return await repository.fetchFiles(courseId);
   }
 }

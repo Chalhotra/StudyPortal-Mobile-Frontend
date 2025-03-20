@@ -4,12 +4,12 @@ import 'package:studyportal/core/usecases/usecase.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
-class LoadExplorePage implements UseCase<List<Branch>> {
+class LoadExplorePage implements UseCase<List<Branch>, NoParams> {
   final Repository repository;
   const LoadExplorePage(this.repository);
 
   @override
-  Future<Either<Failure, List<Branch>>> call({String? param}) async {
+  Future<Either<Failure, List<Branch>>> call(NoParams params) async {
     return await repository.loadExplorePage();
   }
 }

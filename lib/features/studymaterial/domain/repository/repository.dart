@@ -1,8 +1,10 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:studyportal/core/errors/failures.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/bookmark.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/course.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 
 abstract interface class Repository {
   Future<Either<Failure, List<Branch>>> loadExplorePage();
@@ -10,4 +12,8 @@ abstract interface class Repository {
   Future<Either<Failure, List<File>>> fetchBookmarks();
   Future<Either<Failure, List<Course>>> fetchCourses(String branchId);
   Future<Either<Failure, List<File>>> fetchFiles(String courseId);
+  Future<Either<Failure, bool>> addPin(Pin pin);
+  Future<Either<Failure, bool>> addBookmark(Bookmark bookmark);
+  Future<Either<Failure, bool>> removePin(Pin pin);
+  Future<Either<Failure, bool>> removeBookmark(Bookmark bookmark);
 }

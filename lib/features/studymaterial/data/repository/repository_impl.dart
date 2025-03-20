@@ -2,9 +2,11 @@ import 'package:fpdart/fpdart.dart';
 import 'package:studyportal/core/errors/exceptions.dart';
 import 'package:studyportal/core/errors/failures.dart';
 import 'package:studyportal/features/studymaterial/data/datasources/remote_data_source.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/bookmark.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/course.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 import 'package:studyportal/features/studymaterial/domain/repository/repository.dart';
 
 class RepositoryImpl implements Repository {
@@ -52,10 +54,50 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, List<File>>> fetchFiles(String courseId) async {
+  Future<Either<Failure, List<File>>> fetchFiles(String courseCode) async {
     try {
-      final files = await remoteDataSource.fetchFiles(courseId);
+      final files = await remoteDataSource.fetchFiles(courseCode);
       return right(files);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> addBookmark(Bookmark bookmark) async {
+    try {
+      await remoteDataSource.addBookmark(bookmark);
+      return right(true);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> addPin(Pin pin) async {
+    try {
+      await remoteDataSource.addPin(pin);
+      return right(true);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> removeBookmark(Bookmark bookmark) async {
+    try {
+      await remoteDataSource.removeBookmark(bookmark);
+      return right(true);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> removePin(Pin pin) async {
+    try {
+      await remoteDataSource.removePin(pin);
+      return right(true);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }

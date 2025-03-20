@@ -1,7 +1,7 @@
 class File {
   final String id;
   final String name;
-  final String courseId;
+  final String courseCode;
   final String s3Url;
   final String status;
   final String description;
@@ -10,7 +10,7 @@ class File {
   File(
       {required this.id,
       required this.name,
-      required this.courseId,
+      required this.courseCode,
       required this.s3Url,
       required this.status,
       required this.description,
