@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
+import 'package:studyportal/core/theme/constants.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/explore_flow/files_list_page/files_list_page.dart';
-
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_active.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_inactive.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
 
-class CourseCard extends StatelessWidget implements DepartmentCard {
+class CourseCard extends StatelessWidget implements BranchCard {
   @override
   final String title;
   @override
   final String subtitle;
-  final Department department;
+  final Branch branch;
   @override
   final Pin pin;
   @override
@@ -26,7 +26,7 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
     super.key,
     required this.title,
     required this.subtitle,
-    required this.department,
+    required this.branch,
     required this.pin,
     required this.semester,
     this.onTap,
@@ -44,7 +44,7 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
         height: 160.h,
         padding: const EdgeInsets.only(bottom: 12).w,
         decoration: BoxDecoration(
-          color: themeColor,
+          color: Color(StudyPortalConstants.spColorList[id % 4]),
           borderRadius: BorderRadius.circular(12).w,
         ),
         child: ClipRRect(
@@ -113,5 +113,5 @@ class CourseCard extends StatelessWidget implements DepartmentCard {
   }
 
   @override
-  Color get themeColor => department.themeColor;
+  int get id => branch.id;
 }

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/more_info_button/more_info_button.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
@@ -64,13 +64,13 @@ class PinnedSection extends StatelessWidget {
                 return Text(state.message);
               } else if (state is FetchPinsLoaded) {
                 int index = 0;
-                final List<DepartmentCard> pinnedCards =
+                final List<BranchCard> pinnedCards =
                     state.pins.map((branch) {
                   index++;
-                  return DepartmentCard(
+                  return BranchCard(
                     title: branch.name,
                     subtitle: branch.department,
-                    themeColor: HardCodedConstants.courseCardColors[index],
+                    id: index,
                     pin: Pin.none,
                     onTap: () => {},
                   );

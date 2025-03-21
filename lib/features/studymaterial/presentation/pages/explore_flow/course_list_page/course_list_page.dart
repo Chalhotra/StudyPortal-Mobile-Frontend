@@ -3,20 +3,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studyportal/core/theme/constants.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
-import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/filters_page.dart/filters_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
 
 class CourseListPage extends StatefulWidget {
-  static MaterialPageRoute route(Department dept) {
+  static MaterialPageRoute route(Branch branch) {
     return MaterialPageRoute(
-      builder: (context) => CourseListPage(department: dept),
+      builder: (context) => CourseListPage(branch: branch),
     );
   }
 
-  final Department department;
-  const CourseListPage({super.key, required this.department});
+  final Branch branch;
+  const CourseListPage({super.key, required this.branch});
 
   @override
   State<CourseListPage> createState() => _CourseListPageState();
@@ -65,7 +65,7 @@ class _CourseListPageState extends State<CourseListPage> {
   Widget build(BuildContext context) {
     final filteredCourseCards = courseCards
         .where((courseCard) =>
-            courseCard.department.title == widget.department.title)
+            courseCard.branch.name == widget.branch.name)
         .toList();
 
     final Map<int, List<CourseCard>> semesterWiseCourseCards =
@@ -93,7 +93,7 @@ class _CourseListPageState extends State<CourseListPage> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.75.w,
                       child: Text(
-                        "${widget.department.title} Department",
+                        widget.branch.name,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 24.sp),
@@ -110,7 +110,7 @@ class _CourseListPageState extends State<CourseListPage> {
               ),
               TextField(
                 decoration: InputDecoration(
-                  hintText: "Search in ${widget.department.title} Department",
+                  hintText: "Search in ${widget.branch.name}",
                   prefixIcon: Padding(
                     padding: EdgeInsets.all(10.r),
                     child: SvgPicture.asset(
@@ -142,7 +142,7 @@ class _CourseListPageState extends State<CourseListPage> {
                           (160.h * numberOfRows + 12.h * (numberOfRows - 1)),
                       title: "Semester $semester",
                       rows: 3.5,
-                      departmentCards: courses,
+                      branchCards: courses,
                       scroll: false,
                     );
                   },

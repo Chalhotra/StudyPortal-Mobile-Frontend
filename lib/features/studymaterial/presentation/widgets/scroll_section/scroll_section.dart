@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:studyportal/core/theme/constants.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 
 class ScrollSection extends StatelessWidget {
   const ScrollSection({
     super.key,
     required this.rows,
-    required this.departmentCards,
+    required this.branchCards,
     required this.scroll,
     this.title = "",
     required this.scrollSectionHeight,
   });
 
   final double rows;
-  final List<DepartmentCard> departmentCards;
+  final List<BranchCard> branchCards;
   final bool scroll;
   final String title;
   final double scrollSectionHeight;
@@ -47,7 +47,7 @@ class ScrollSection extends StatelessWidget {
               ),
             ),
           // Remove the Expanded widget
-          departmentCards.isEmpty
+          branchCards.isEmpty
               ? const Center(
                   child: Text(
                     "No items to display",
@@ -61,7 +61,7 @@ class ScrollSection extends StatelessWidget {
                         scroll ? null : const NeverScrollableScrollPhysics(),
                     desiredItemWidth: 160.w,
                     minSpacing: 12.r,
-                    children: departmentCards,
+                    children: branchCards,
                   ),
                 )
         ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/course_card/course_card.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
@@ -48,31 +48,31 @@ class HardCodedConstants {
         title: "Previous Exams on Structural Analysis"),
   ];
 
-  static const List<DepartmentCard> departmentCards = [
-    DepartmentCard(
+  static const List<BranchCard> branchCards = [
+    BranchCard(
         title: "Electrical",
         subtitle: "Fundamentals of circuits and electronics",
-        themeColor: Color(0xFF0D891B),
+        id: 0,
         pin: Pin.none),
-    DepartmentCard(
+    BranchCard(
         title: "Mechanical",
         subtitle: "Mechanics and design principles",
-        themeColor: Color(0xFFCF4141),
+        id: 1,
         pin: Pin.none),
-    DepartmentCard(
+    BranchCard(
         title: "Mathematics",
         subtitle: "Algebra, calculus, and more",
-        themeColor: Colors.deepPurple,
+        id: 2,
         pin: Pin.none),
-    DepartmentCard(
+    BranchCard(
         title: "Computer Science",
         subtitle: "Programming and algorithms",
-        themeColor: Color(0xFF005792),
+        id: 3,
         pin: Pin.none),
-    DepartmentCard(
+    BranchCard(
         title: "Civil",
         subtitle: "Structural and construction engineering",
-        themeColor: Color(0xFF8B4513),
+        id: 4,
         pin: Pin.none),
   ];
 
@@ -82,73 +82,73 @@ class HardCodedConstants {
         title: "ABC-101",
         subtitle: "Basic electrical circuits",
         pin: Pin.inactive,
-        department: Department(
-            title: "Electrical",
-            subtitle: "Fundamentals of circuits",
-            themeColor: const Color(0xFF0D891B))),
+        branch: Branch(
+            name: "Electrical",
+            department: "Fundamentals of circuits",
+            id: 0)),
     CourseCard(
         semester: 2,
         title: "DEF-202",
         subtitle: "Principles of structural design",
         pin: Pin.inactive,
-        department: Department(
-            title: "Civil",
-            subtitle: "Building structures",
-            themeColor: const Color(0xFF8B4513))),
+        branch: Branch(
+            name: "Civil",
+            department: "Building structures",
+            id: 1)),
     CourseCard(
         semester: 3,
         title: "GHI-303",
         subtitle: "Mathematical modeling and analysis",
         pin: Pin.inactive,
-        department: Department(
-            title: "Mathematics",
-            subtitle: "Calculus and algebra",
-            themeColor: Colors.deepPurple)),
+        branch: Branch(
+            name: "Mathematics",
+            department: "Calculus and algebra",
+            id: 2)),
     CourseCard(
         semester: 4,
         title: "JKL-404",
         subtitle: "Thermodynamics principles",
         pin: Pin.inactive,
-        department: Department(
-            title: "Mechanical",
-            subtitle: "Heat transfer and energy",
-            themeColor: const Color(0xFFCF4141))),
+        branch: Branch(
+            name: "Mechanical",
+            department: "Heat transfer and energy",
+            id: 3)),
     CourseCard(
         semester: 5,
         title: "MNO-505",
         subtitle: "Quantum physics and mechanics",
         pin: Pin.inactive,
-        department: Department(
-            title: "Physics",
-            subtitle: "Subatomic and quantum theory",
-            themeColor: const Color(0xFF006400))),
+        branch: Branch(
+            name: "Physics",
+            department: "Subatomic and quantum theory",
+            id: 4)),
     CourseCard(
         semester: 6,
         title: "PQR-606",
         subtitle: "Fluid mechanics and dynamics",
         pin: Pin.inactive,
-        department: Department(
-            title: "Mechanical",
-            subtitle: "Fluid behavior analysis",
-            themeColor: const Color(0xFFCF4141))),
+        branch: Branch(
+            name: "Mechanical",
+            department: "Fluid behavior analysis",
+            id: 5)),
     CourseCard(
         semester: 7,
         title: "STU-707",
         subtitle: "Data Science essentials",
         pin: Pin.inactive,
-        department: Department(
-            title: "Computer Science",
-            subtitle: "Machine learning and data analysis",
-            themeColor: const Color(0xFF005792))),
+        branch: Branch(
+            name: "Computer Science",
+            department: "Machine learning and data analysis",
+            id: 6)),
     CourseCard(
         semester: 8,
         title: "VWX-808",
         subtitle: "Advanced Structural Analysis",
         pin: Pin.inactive,
-        department: Department(
-            title: "Civil",
-            subtitle: "Load distribution and materials",
-            themeColor: const Color(0xFF8B4513))),
+        branch: Branch(
+            name: "Civil",
+            department: "Load distribution and materials",
+            id: 7)),
   ];
 
   static const List<FileTile> recentTiles = fileTiles;
