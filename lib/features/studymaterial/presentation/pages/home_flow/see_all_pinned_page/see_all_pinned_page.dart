@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
@@ -23,12 +23,12 @@ class SeeAllPinnedPage extends StatelessWidget {
           return Text(state.message);
         } else if (state is FetchPinsLoaded) {
           int index = 0;
-          final List<DepartmentCard> pinnedCards = state.pins.map((branch) {
+          final List<BranchCard> pinnedCards = state.pins.map((branch) {
             index++;
-            return DepartmentCard(
+            return BranchCard(
               title: branch.name,
               subtitle: branch.department,
-              themeColor: HardCodedConstants.courseCardColors[index],
+              id: index,
               pin: Pin.none,
               onTap: () => {},
             );
@@ -57,7 +57,7 @@ class SeeAllPinnedPage extends StatelessWidget {
                         scrollSectionHeight: (160 * 4 - 18).h,
                         scroll: true,
                         rows: 4,
-                        departmentCards: pinnedCards),
+                        branchCards: pinnedCards),
                     SizedBox(height: 20.h),
                   ],
                 ),

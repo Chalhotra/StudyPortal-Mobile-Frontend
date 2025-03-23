@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:studyportal/features/studymaterial/domain/entities/department.dart';
+import 'package:studyportal/core/theme/constants.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/branch.dart';
 import 'package:studyportal/features/studymaterial/presentation/pages/explore_flow/course_list_page/course_list_page.dart';
 import 'package:studyportal/features/studymaterial/presentation/utils/searchable.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_active.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bookmarked_pin/pin_inactive.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
 
-class DepartmentCard extends StatelessWidget implements Searchable {
+class BranchCard extends StatelessWidget implements Searchable {
   @override
   final String title;
   final String subtitle;
-  final Color themeColor;
+  final int id;
   final Pin pin;
   final VoidCallback? onTap;
 
-  const DepartmentCard(
+  const BranchCard(
       {super.key,
       required this.title,
       required this.subtitle,
-      required this.themeColor,
+      required this.id,
       required this.pin,
       this.onTap});
 
@@ -30,8 +31,8 @@ class DepartmentCard extends StatelessWidget implements Searchable {
       onTap: onTap ??
           () {
             Navigator.of(context).push(
-              CourseListPage.route(Department(
-                  title: title, subtitle: subtitle, themeColor: themeColor)),
+              CourseListPage.route(Branch(
+                  name: title, department: subtitle, id: 0)),
             );
           },
       child: Container(
@@ -39,7 +40,7 @@ class DepartmentCard extends StatelessWidget implements Searchable {
         height: 160.h,
         padding: const EdgeInsets.only(bottom: 12).w,
         decoration: BoxDecoration(
-          color: themeColor,
+          color: Color(StudyPortalConstants.spColorList[id % 4]),
           borderRadius: BorderRadius.circular(12).w,
         ),
         child: ClipRRect(

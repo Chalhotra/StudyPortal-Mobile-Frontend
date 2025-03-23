@@ -4,7 +4,7 @@ import 'package:studyportal/features/studymaterial/data/pre_integration/hardcode
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/department_card/department_card.dart';
+import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/scroll_section/scroll_section.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/tools/pin_enum.dart';
 
@@ -18,12 +18,12 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  List<DepartmentCard> departmentCards = [];
+  List<BranchCard> branchCards = [];
 
   @override
   void initState() {
     super.initState();
-    departmentCards = HardCodedConstants.departmentCards;
+    branchCards = HardCodedConstants.branchCards;
     _tabController = TabController(initialIndex: 0, length: 2, vsync: this);
   }
 
@@ -44,13 +44,13 @@ class _ExplorePageState extends State<ExplorePage>
           return Text(state.message);
         } else if (state is FetchBranchesLoaded) {
           int index = 0;
-          final List<DepartmentCard> departmentCards =
+          final List<BranchCard> branchCards =
               state.branches.map((branch) {
             index++;
-            return DepartmentCard(
+            return BranchCard(
               title: branch.name,
               subtitle: branch.department,
-              themeColor: HardCodedConstants.courseCardColors[index],
+              id: index,
               pin: Pin.none,
               onTap: () => {},
             );
@@ -113,14 +113,14 @@ class _ExplorePageState extends State<ExplorePage>
                           scrollSectionHeight: 160.h * 3.5 - 33.h,
                           scroll: true,
                           rows: 3.5,
-                          departmentCards: departmentCards,
+                          branchCards: branchCards,
                         ),
                         ScrollSection(
                           scrollSectionHeight: 160.h * 3.5 - 33.h,
                           scroll: true,
                           rows: 3.5,
-                          departmentCards: departmentCards.length > 2
-                              ? [departmentCards[1], departmentCards[2]]
+                          branchCards: branchCards.length > 2
+                              ? [branchCards[1], branchCards[2]]
                               : [],
                         ),
                       ],
