@@ -11,7 +11,7 @@ class FetchCoursesCubit extends Cubit<FetchCoursesState> {
   FetchCoursesCubit({required this.fetchCourses})
       : super(FetchCoursesInitial());
 
-  Future<void> getCourses() async {
+  Future<void> getCourses(String branchId) async {
     emit(FetchCoursesLoading());
     final response = await fetchCourses();
     response.fold((failure) => emit(FetchCoursesFailure(failure.message)),
