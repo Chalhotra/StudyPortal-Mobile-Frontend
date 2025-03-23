@@ -83,36 +83,28 @@ class HardCodedConstants {
         subtitle: "Basic electrical circuits",
         pin: Pin.inactive,
         branch: Branch(
-            name: "Electrical",
-            department: "Fundamentals of circuits",
-            id: 0)),
+            name: "Electrical", department: "Fundamentals of circuits", id: 0)),
     CourseCard(
         semester: 2,
         title: "DEF-202",
         subtitle: "Principles of structural design",
         pin: Pin.inactive,
-        branch: Branch(
-            name: "Civil",
-            department: "Building structures",
-            id: 1)),
+        branch:
+            Branch(name: "Civil", department: "Building structures", id: 1)),
     CourseCard(
         semester: 3,
         title: "GHI-303",
         subtitle: "Mathematical modeling and analysis",
         pin: Pin.inactive,
         branch: Branch(
-            name: "Mathematics",
-            department: "Calculus and algebra",
-            id: 2)),
+            name: "Mathematics", department: "Calculus and algebra", id: 2)),
     CourseCard(
         semester: 4,
         title: "JKL-404",
         subtitle: "Thermodynamics principles",
         pin: Pin.inactive,
         branch: Branch(
-            name: "Mechanical",
-            department: "Heat transfer and energy",
-            id: 3)),
+            name: "Mechanical", department: "Heat transfer and energy", id: 3)),
     CourseCard(
         semester: 5,
         title: "MNO-505",
@@ -128,9 +120,7 @@ class HardCodedConstants {
         subtitle: "Fluid mechanics and dynamics",
         pin: Pin.inactive,
         branch: Branch(
-            name: "Mechanical",
-            department: "Fluid behavior analysis",
-            id: 5)),
+            name: "Mechanical", department: "Fluid behavior analysis", id: 5)),
     CourseCard(
         semester: 7,
         title: "STU-707",

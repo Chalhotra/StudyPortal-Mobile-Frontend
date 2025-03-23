@@ -64,8 +64,7 @@ class _CourseListPageState extends State<CourseListPage> {
   @override
   Widget build(BuildContext context) {
     final filteredCourseCards = courseCards
-        .where((courseCard) =>
-            courseCard.branch.name == widget.branch.name)
+        .where((courseCard) => courseCard.branch.name == widget.branch.name)
         .toList();
 
     final Map<int, List<CourseCard>> semesterWiseCourseCards =

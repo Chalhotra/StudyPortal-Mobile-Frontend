@@ -11,7 +11,7 @@ import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 
 abstract interface class RemoteDataSource {
-  Future<List<Branch>> fetchDepartments();
+  Future<List<Branch>> fetchBranches();
   Future<List<Branch>> fetchPins();
   Future<List<File>> fetchBookmarks();
   Future<List<Course>> fetchCourses(String branchId);
@@ -26,7 +26,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   final String apiEndpoint = 'http://10.0.2.2:4000';
 
   @override
-  Future<List<Branch>> fetchDepartments() async {
+  Future<List<Branch>> fetchBranches() async {
     try {
       final response = await http.get(Uri.parse("$apiEndpoint/api/branches"));
 

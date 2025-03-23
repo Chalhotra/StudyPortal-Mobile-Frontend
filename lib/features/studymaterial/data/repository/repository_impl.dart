@@ -16,7 +16,7 @@ class RepositoryImpl implements Repository {
   @override
   Future<Either<Failure, List<Branch>>> loadExplorePage() async {
     try {
-      final branches = await remoteDataSource.fetchDepartments();
+      final branches = await remoteDataSource.fetchBranches();
       return right(branches);
     } on ServerException catch (e) {
       return left(Failure(e.message));

@@ -31,8 +31,8 @@ class BranchCard extends StatelessWidget implements Searchable {
       onTap: onTap ??
           () {
             Navigator.of(context).push(
-              CourseListPage.route(Branch(
-                  name: title, department: subtitle, id: 0)),
+              CourseListPage.route(
+                  Branch(name: title, department: subtitle, id: 0)),
             );
           },
       child: Container(

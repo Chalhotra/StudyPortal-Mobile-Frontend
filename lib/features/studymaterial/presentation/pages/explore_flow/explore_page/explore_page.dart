@@ -44,8 +44,7 @@ class _ExplorePageState extends State<ExplorePage>
           return Text(state.message);
         } else if (state is FetchBranchesLoaded) {
           int index = 0;
-          final List<BranchCard> branchCards =
-              state.branches.map((branch) {
+          final List<BranchCard> branchCards = state.branches.map((branch) {
             index++;
             return BranchCard(
               title: branch.name,

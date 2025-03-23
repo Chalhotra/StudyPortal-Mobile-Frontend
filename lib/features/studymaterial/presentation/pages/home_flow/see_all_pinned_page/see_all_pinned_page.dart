@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:studyportal/features/studymaterial/data/pre_integration/hardcoded_stuff.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/branch_card/branch_card.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/loader/loader.dart';
