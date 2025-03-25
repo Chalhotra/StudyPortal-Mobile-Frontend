@@ -9,7 +9,7 @@ class FetchFiles implements UseCase<List<File>, String> {
   const FetchFiles(this.repository);
 
   @override
-  Future<Either<Failure, List<File>>> call(String courseId) async {
-    return await repository.fetchFiles(courseId);
+  Future<Either<Failure, List<File>>> call(String courseCode) async {
+    return await repository.fetchFiles(courseCode);
   }
 }

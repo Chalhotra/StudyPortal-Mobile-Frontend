@@ -1,5 +1,5 @@
 class File {
-  final String id;
+  final int id;
   final String name;
   final String courseCode;
   final String s3Url;

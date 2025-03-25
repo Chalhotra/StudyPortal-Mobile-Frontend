@@ -1,7 +1,7 @@
 class Bookmark {
-  String branchId;
+  int fileId;
 
   Bookmark({
-    required this.branchId,
+    required this.fileId,
   });
 }

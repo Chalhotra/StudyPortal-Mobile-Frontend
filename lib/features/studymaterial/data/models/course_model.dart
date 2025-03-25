@@ -5,14 +5,18 @@ class CourseModel extends Course {
       {required super.courseCode,
       required super.courseName,
       required super.semester,
-      required super.branch});
+      required super.branch,
+      required super.id,
+      required super.files});
 
   factory CourseModel.fromJson(Map<String, dynamic> map) {
     return CourseModel(
+      id: map["id"],
       courseCode: map["course_code"],
       courseName: map["course_name"],
       semester: map["semester"],
       branch: map["branch"],
+      files: map["files"],
     );
   }
 }

@@ -1,11 +1,11 @@
 import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 
 class PinModel extends Pin {
-  PinModel({required super.fileId});
+  PinModel({required super.branchId});
 
   factory PinModel.fromJson(Map<String, dynamic> map) {
     return PinModel(
-      fileId: map["file_id"],
+      branchId: map["branch_id"],
     );
   }
 }

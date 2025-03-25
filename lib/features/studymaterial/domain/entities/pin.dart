@@ -1,7 +1,7 @@
 class Pin {
-  String fileId;
+  int branchId;
 
   Pin({
-    required this.fileId,
+    required this.branchId,
   });
 }

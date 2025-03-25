@@ -7,11 +7,11 @@ import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
 import 'package:studyportal/features/studymaterial/domain/entities/pin.dart';
 
 abstract interface class Repository {
-  Future<Either<Failure, List<Branch>>> loadExplorePage();
+  Future<Either<Failure, List<Branch>>> fetchBranches();
   Future<Either<Failure, List<Branch>>> fetchPins();
   Future<Either<Failure, List<File>>> fetchBookmarks();
   Future<Either<Failure, List<Course>>> fetchCourses(String branchId);
-  Future<Either<Failure, List<File>>> fetchFiles(String courseId);
+  Future<Either<Failure, List<File>>> fetchFiles(String courseCode);
   Future<Either<Failure, Pin>> addPin(Pin pin);
   Future<Either<Failure, Bookmark>> addBookmark(Bookmark bookmark);
   Future<Either<Failure, Pin>> removePin(Pin pin);

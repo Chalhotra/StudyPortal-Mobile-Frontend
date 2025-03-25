@@ -4,7 +4,7 @@ import 'package:studyportal/features/studymaterial/data/datasources/remote_data_
 import 'package:studyportal/features/studymaterial/data/repository/repository_impl.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_bookmarks.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_pins.dart';
-import 'package:studyportal/features/studymaterial/domain/usecases/load_explore_page.dart';
+import 'package:studyportal/features/studymaterial/domain/usecases/fetch_branches.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
@@ -19,8 +19,8 @@ void main() {
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
         create: (_) => FetchBranchesCubit(
-            loadExplorePage:
-                LoadExplorePage(RepositoryImpl(RemoteDataSourceImpl())))),
+            fetchBranches:
+                FetchBranches(RepositoryImpl(RemoteDataSourceImpl())))),
     BlocProvider(
         create: (_) => FetchPinsCubit(
             fetchPins: FetchPins(RepositoryImpl(RemoteDataSourceImpl())))),

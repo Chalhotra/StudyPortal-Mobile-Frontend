@@ -14,7 +14,7 @@ class FileModel extends File {
     return FileModel(
         id: map["id"],
         name: map["name"],
-        courseCode: map["course_id"],
+        courseCode: map["course_code"],
         s3Url: map["s3_url"],
         status: map["status"],
         description: map["description"],

@@ -15,7 +15,7 @@ abstract interface class RemoteDataSource {
   Future<List<Branch>> fetchPins();
   Future<List<File>> fetchBookmarks();
   Future<List<Course>> fetchCourses(String branchId);
-  Future<List<File>> fetchFiles(String courseId);
+  Future<List<File>> fetchFiles(String courseCode);
   Future<void> addPin(Pin pin);
   Future<void> addBookmark(Bookmark bookmark);
   Future<void> removePin(Pin pin);
@@ -99,8 +99,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<List<Course>> fetchCourses(String branchId) async {
     try {
-      final response =
-          await http.get(Uri.parse("$apiEndpoint/api/courses/$branchId"));
+      final response = await http
+          .get(Uri.parse("$apiEndpoint/api/courses/?branch_id=$branchId"));
 
       if (response.statusCode != 200) {
         throw ServerException("Failed to load courses: ${response.statusCode}");
@@ -148,11 +148,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<void> addBookmark(Bookmark bookmark) async {
     try {
       final response = await http.post(
-        Uri.parse("$apiEndpoint/api/add-bookmark"),
+        Uri.parse("$apiEndpoint/api/add-bookmark/?file_id=${bookmark.fileId}"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode(bookmark),
       );
 
       if (response.statusCode != 201) {
@@ -167,11 +166,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<void> addPin(Pin pin) async {
     try {
       final response = await http.post(
-        Uri.parse("$apiEndpoint/api/add-pin"),
+        Uri.parse("$apiEndpoint/api/add-pin/?branch_id=${pin.branchId}"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode(pin),
       );
 
       if (response.statusCode != 201) {
@@ -186,11 +184,11 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<void> removeBookmark(Bookmark bookmark) async {
     try {
       final response = await http.delete(
-        Uri.parse("$apiEndpoint/api/remove-bookmark"),
+        Uri.parse(
+            "$apiEndpoint/api/remove-bookmark/?file_id=${bookmark.fileId}"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode(bookmark),
       );
 
       if (response.statusCode != 201) {
@@ -206,11 +204,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<void> removePin(Pin pin) async {
     try {
       final response = await http.delete(
-        Uri.parse("$apiEndpoint/api/remove-pin"),
+        Uri.parse("$apiEndpoint/api/remove-pin/?branch_id=${pin.branchId}"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode(pin),
       );
 
       if (response.statusCode != 201) {

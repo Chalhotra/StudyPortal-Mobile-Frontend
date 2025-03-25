@@ -72,8 +72,7 @@ class BookmarkedSection extends StatelessWidget {
                     return FileTile(
                       title: file.name,
                       fileType: fileType,
-                      courseCode: file
-                          .courseCode, // Need to change this, instead of courseId use courseCode
+                      courseCode: file.courseCode,
                     );
                     //add onTap
                   }).toList();
