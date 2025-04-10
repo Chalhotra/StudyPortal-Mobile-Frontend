@@ -11,7 +11,7 @@ class RemoveBookmarkCubit extends Cubit<RemoveBookmarkState> {
   RemoveBookmarkCubit({required this.removebookmark})
       : super(RemoveBookmarkInitial());
 
-  Future<void> removeBookmark(bookmark) async {
+  Future<void> removeBookmark(Bookmark bookmark) async {
     emit(RemoveBookmarkLoading());
     final response = await removebookmark(bookmark);
     response.fold((failure) => emit(RemoveBookmarkFailure(failure.message)),

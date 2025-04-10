@@ -10,14 +10,14 @@ class UploadFile implements UseCase<File, File> {
 
   @override
   Future<Either<Failure, File>> call(File file) async {
-    if(file.path != null) {
-          final response = await repository.uploadFile(file);
-    return response.fold((failure) => Left(failure), (presignedUrl) async {
-      final result =
-          await repository.uploadFileToS3Bucket(file.path!, presignedUrl);
-      return result.fold((failure) => Left(failure),
-          (_) async => await repository.uploadFileComplete(file));
-    });
+    if (file.path != null) {
+      final response = await repository.uploadFile(file);
+      return response.fold((failure) => Left(failure), (presignedUrl) async {
+        final result =
+            await repository.uploadFileToS3Bucket(file.path!, presignedUrl);
+        return result.fold((failure) => Left(failure),
+            (_) async => await repository.uploadFileComplete(file));
+      });
     } else {
       return Left(Failure());
     }

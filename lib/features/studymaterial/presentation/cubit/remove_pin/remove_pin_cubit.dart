@@ -10,7 +10,7 @@ class RemovePinCubit extends Cubit<RemovePinState> {
 
   RemovePinCubit({required this.removepin}) : super(RemovePinInitial());
 
-  Future<void> removePin(pin) async {
+  Future<void> removePin(Pin pin) async {
     emit(RemovePinLoading());
     final response = await removepin(pin);
     response.fold((failure) => emit(RemovePinFailure(failure.message)),
