@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studyportal/features/studymaterial/data/datasources/remote_data_source.dart';
 import 'package:studyportal/features/studymaterial/data/repository/repository_impl.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_bookmarks.dart';
+import 'package:studyportal/features/studymaterial/domain/usecases/fetch_courses.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_pins.dart';
 import 'package:studyportal/features/studymaterial/domain/usecases/fetch_branches.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_bookmarks/fetch_bookmarks_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_branches/fetch_branches_cubit.dart';
+import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_courses/fetch_courses_cubit.dart';
 import 'package:studyportal/features/studymaterial/presentation/cubit/fetch_pins/fetch_pins_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/bottom_navbar/sp_bottom_navbar.dart';
@@ -17,6 +19,10 @@ import 'package:studyportal/core/theme/theme_data.dart';
 
 void main() {
   runApp(MultiBlocProvider(providers: [
+    BlocProvider(
+        create: (_) => FetchCoursesCubit(
+            fetchCourses:
+                FetchCourses(RepositoryImpl(RemoteDataSourceImpl())))),
     BlocProvider(
         create: (_) => FetchBranchesCubit(
             fetchBranches:

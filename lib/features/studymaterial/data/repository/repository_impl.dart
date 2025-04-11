@@ -44,7 +44,7 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, List<Course>>> fetchCourses(String branchId) async {
+  Future<Either<Failure, List<Course>>> fetchCourses(int branchId) async {
     try {
       final courses = await remoteDataSource.fetchCourses(branchId);
       return right(courses);

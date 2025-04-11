@@ -14,7 +14,7 @@ abstract interface class RemoteDataSource {
   Future<List<Branch>> fetchBranches();
   Future<List<Branch>> fetchPins();
   Future<List<File>> fetchBookmarks();
-  Future<List<Course>> fetchCourses(String branchId);
+  Future<List<Course>> fetchCourses(int branchId);
   Future<List<File>> fetchFiles(String courseCode);
   Future<void> addPin(Pin pin);
   Future<void> addBookmark(Bookmark bookmark);
@@ -23,7 +23,7 @@ abstract interface class RemoteDataSource {
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
-  final String apiEndpoint = 'http://10.0.2.2:4000';
+  final String apiEndpoint = 'http://127.0.0.1:4000';
 
   @override
   Future<List<Branch>> fetchBranches() async {
@@ -89,7 +89,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       }
 
       return (responseData["data"] as List<dynamic>)
-          .map((file) => FileModel.fromJson(file))
+          .map((bookmark) => FileModel.fromJson(bookmark))
           .toList();
     } catch (e) {
       throw ServerException(e.toString());
@@ -97,7 +97,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<List<Course>> fetchCourses(String branchId) async {
+  Future<List<Course>> fetchCourses(int branchId) async {
     try {
       final response = await http
           .get(Uri.parse("$apiEndpoint/api/courses/?branch_id=$branchId"));
@@ -111,10 +111,13 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       if (responseData["data"] == null) {
         throw const ServerException("No Courses");
       }
-
-      return (responseData["data"] as List<dynamic>)
-          .map((file) => CourseModel.fromJson(file))
-          .toList();
+      return (responseData["data"] as List<dynamic>).map((course) {
+        final fileIds =
+            (course["files"] as List<dynamic>).map((e) => e as int).toList();
+        course["files"] =
+            fileIds; // Optional, in case fromJson expects List<int>
+        return CourseModel.fromJson(course);
+      }).toList();
     } catch (e) {
       throw ServerException(e.toString());
     }
