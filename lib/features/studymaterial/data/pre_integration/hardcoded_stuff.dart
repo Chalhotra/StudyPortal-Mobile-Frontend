@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:studyportal/features/studymaterial/domain/entities/file.dart';
 import 'package:studyportal/features/studymaterial/presentation/widgets/file_tiles/file_tile.dart';
-import 'package:studyportal/features/studymaterial/presentation/widgets/tools/file_type_enum.dart';
 
 class HardCodedConstants {
   static const List<Color> courseCardColors = [
@@ -9,41 +9,112 @@ class HardCodedConstants {
     Color(0xFF20284C)
   ];
 
-  static const List<FileTile> fileTiles = [
+  static List<FileTile> fileTiles = [
     FileTile(
-        fileType: FileType.link,
+      file: File(
+        id: 0,
         courseCode: "ABC-101",
-        title: "Introduction to Electrical Circuits"),
+        type: "link",
+        name: "Introduction to Electrical Circuits",
+        s3Url: "https://abc.com/intro-electrical-circuits",
+        status: "approved",
+        description: "Mr. Landu Chamar ki file",
+      ),
+    ),
     FileTile(
-        fileType: FileType.book,
+      file: File(
+        id: 1,
+        courseCode: "ABC-101",
+        type: "link",
+        name: "Introduction to Electrical Circuits",
+        s3Url: "https://example.com/electrical-circuits",
+        status: "approved",
+        description: "Overview of basic circuit concepts and laws.",
+      ),
+    ),
+    FileTile(
+      file: File(
+        id: 2,
         courseCode: "DEF-202",
-        title: "Advanced Structural Design"),
+        type: "book",
+        name: "Advanced Structural Design",
+        s3Url: "https://example.com/structural-design",
+        status: "approved",
+        description:
+            "Comprehensive reference on modern structural engineering techniques.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.notes,
+      file: File(
+        id: 3,
         courseCode: "GHI-303",
-        title: "Mathematical Methods for Engineers"),
+        type: "notes",
+        name: "Mathematical Methods for Engineers",
+        s3Url: "https://example.com/math-methods-notes",
+        status: "approved",
+        description:
+            "Handwritten notes covering Laplace transforms, PDEs, and Fourier series.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.pyqs,
+      file: File(
+        id: 4,
         courseCode: "JKL-404",
-        title: "Past Year Papers - Thermodynamics"),
+        type: "pyqs",
+        name: "Past Year Papers - Thermodynamics",
+        s3Url: "https://example.com/thermo-pyqs",
+        status: "approved",
+        description:
+            "Collection of past year question papers for thermodynamics.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.tut,
+      file: File(
+        id: 5,
         courseCode: "MNO-505",
-        title: "Tutorials on Quantum Mechanics"),
+        type: "tut",
+        name: "Tutorials on Quantum Mechanics",
+        s3Url: "https://example.com/qm-tutorials",
+        status: "approved",
+        description: "Solved tutorials and examples in quantum mechanics.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.notes,
+      file: File(
+        id: 6,
         courseCode: "PQR-606",
-        title: "Lecture Notes on Fluid Mechanics"),
+        type: "notes",
+        name: "Lecture Notes on Fluid Mechanics",
+        s3Url: "https://example.com/fluid-notes",
+        status: "approved",
+        description: "Well-organized notes based on professor’s lectures.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.book,
+      file: File(
+        id: 7,
         courseCode: "STU-707",
-        title: "Essential Readings on Data Science"),
+        type: "book",
+        name: "Essential Readings on Data Science",
+        s3Url: "https://example.com/data-science-readings",
+        status: "approved",
+        description:
+            "Curated readings for foundational topics in data science.",
+      ),
+    ),
     FileTile(
-        fileType: FileType.pyqs,
+      file: File(
+        id: 8,
         courseCode: "VWX-808",
-        title: "Previous Exams on Structural Analysis"),
+        type: "pyqs",
+        name: "Previous Exams on Structural Analysis",
+        s3Url: "https://example.com/structural-analysis-pyqs",
+        status: "approved",
+        description: "Past structural analysis exams with solutions.",
+      ),
+    ),
   ];
-  static const List<FileTile> recentTiles = fileTiles;
-  static const List<FileTile> bookmarkedTiles = fileTiles;
-  static const List<FileTile> downloadedTiles = fileTiles;
+  static List<FileTile> recentTiles = fileTiles;
+  static List<FileTile> bookmarkedTiles = fileTiles;
+  static List<FileTile> downloadedTiles = fileTiles;
 }
