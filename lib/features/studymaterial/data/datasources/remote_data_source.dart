@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' as file_handler;
 import 'package:http/http.dart' as http;
 import 'package:studyportal/core/errors/exceptions.dart';
 import 'package:studyportal/features/studymaterial/data/models/branch_model.dart';
@@ -17,7 +17,7 @@ abstract interface class RemoteDataSource {
   Future<List<File>> fetchBookmarks();
   Future<List<Course>> fetchCourses(int branchId);
   Future<List<File>> fetchFiles(String courseCode);
-  Future<String> fetchFile(String fileId);
+  Future<String> fetchFile(int fileId);
   Future<void> addPin(Pin pin);
   Future<void> addBookmark(Bookmark bookmark);
   Future<void> removePin(Pin pin);
@@ -28,7 +28,8 @@ abstract interface class RemoteDataSource {
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
-  final String apiEndpoint = 'http://10.0.2.2:4000';
+  // final String apiEndpoint = 'http://10.0.2.2:4000';
+  final String apiEndpoint = 'http://10.81.56.32:4000';
 
   @override
   Future<List<Branch>> fetchBranches() async {
@@ -150,7 +151,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<String> fetchFile(String fileId) async {
+  Future<String> fetchFile(int fileId) async {
     try {
       final response =
           await http.get(Uri.parse("$apiEndpoint/api/get-file/$fileId"));
@@ -297,20 +298,27 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   @override
   Future<void> uploadFileToS3Bucket(String filePath, String fileUrl) async {
-    //uses relative path
     try {
-      ProcessResult result = await Process.run("curl", [
-        "-X",
-        "PUT",
-        "-T",
-        filePath,
-        "-H",
-        "Content-Type: application/octet-stream",
-        fileUrl
-      ]);
+      final file_handler.File file = file_handler.File(filePath);
 
-      if (result.exitCode != 0) {
-        throw ServerException('${result.exitCode}');
+      if (!await file.exists()) {
+        throw ServerException("File does not exist at $filePath");
+      }
+
+      final bytes = await file.readAsBytes();
+
+      final response = await http.put(
+        Uri.parse(fileUrl),
+        headers: {
+          "Content-Type": "application/octet-stream",
+        },
+        body: bytes,
+      );
+
+      if (response.statusCode != 200) {
+        throw const ServerException(
+          'Failed to upload file',
+        );
       }
     } catch (e) {
       throw ServerException(e.toString());

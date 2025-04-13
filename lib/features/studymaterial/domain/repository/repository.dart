@@ -12,7 +12,7 @@ abstract interface class Repository {
   Future<Either<Failure, List<File>>> fetchBookmarks();
   Future<Either<Failure, List<Course>>> fetchCourses(int branchId);
   Future<Either<Failure, List<File>>> fetchFiles(String courseCode);
-  Future<Either<Failure, String>> fetchFile(String fileId);
+  Future<Either<Failure, String>> fetchFile(int fileId);
   Future<Either<Failure, Pin>> addPin(Pin pin);
   Future<Either<Failure, Bookmark>> addBookmark(Bookmark bookmark);
   Future<Either<Failure, Pin>> removePin(Pin pin);

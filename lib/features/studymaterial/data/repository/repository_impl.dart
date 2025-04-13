@@ -64,7 +64,7 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, String>> fetchFile(String fileId) async {
+  Future<Either<Failure, String>> fetchFile(int fileId) async {
     try {
       final url = await remoteDataSource.fetchFile(fileId);
       return right(url);
