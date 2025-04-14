@@ -64,6 +64,16 @@ class RepositoryImpl implements Repository {
   }
 
   @override
+  Future<Either<Failure, String>> fetchFile(int fileId) async {
+    try {
+      final url = await remoteDataSource.fetchFile(fileId);
+      return right(url);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
   Future<Either<Failure, Bookmark>> addBookmark(Bookmark bookmark) async {
     try {
       await remoteDataSource.addBookmark(bookmark);
@@ -108,6 +118,37 @@ class RepositoryImpl implements Repository {
     try {
       await remoteDataSource.downloadFile(file);
       return right(file);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+  
+  @override
+  Future<Either<Failure, String>> uploadFile(File file) async {
+    try {
+      final String url = await remoteDataSource.uploadFile(file);
+      return right(url);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, File>> uploadFileComplete(File file) async {
+    try {
+      await remoteDataSource.uploadFileComplete(file);
+      return right(file);
+    } on ServerException catch (e) {
+      return left(Failure((e.message)));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> uploadFileToS3Bucket(
+      String filePath, String fileUrl) async {
+    try {
+      await remoteDataSource.uploadFileToS3Bucket(filePath, fileUrl);
+      return right(fileUrl);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }

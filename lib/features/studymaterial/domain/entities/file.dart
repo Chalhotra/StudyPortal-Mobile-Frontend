@@ -6,6 +6,7 @@ class File {
   final String status;
   final String description;
   final String type;
+  String? path;
 
   File(
       {required this.id,
@@ -14,5 +15,6 @@ class File {
       required this.s3Url,
       required this.status,
       required this.description,
-      required this.type});
+      required this.type,
+      this.path});
 }
